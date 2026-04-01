@@ -1,0 +1,92 @@
+[
+  {
+    "title": "The Future of Quantum Computing",
+    "description": "Explore how quantum computers will revolutionize cryptography, drug discovery, and complex problem solving.",
+    "keywords": ["Quantum", "Physics", "Computing"],
+    "category": "Future Tech",
+    "type": "Timeless",
+    "bookmarked": false,
+    "used": false
+  },
+  {
+    "title": "CRISPR and Gene Editing Explained",
+    "description": "Deep dive into CRISPR-Cas9 technology and its potential to cure genetic diseases.",
+    "keywords": ["Biology", "Genetics", "CRISPR"],
+    "category": "Biotech",
+    "type": "Timeless",
+    "bookmarked": true,
+    "used": false
+  },
+  {
+    "title": "SpaceX Starship Update 2024",
+    "description": "Latest developments in SpaceX's Starship program including test flights and Mars missions.",
+    "keywords": ["Space", "SpaceX", "Mars"],
+    "category": "Space",
+    "type": "Trending",
+    "bookmarked": false,
+    "used": true
+  },
+  {
+    "title": "How Neural Networks Actually Learn",
+    "description": "Break down backpropagation and gradient descent with visual explanations.",
+    "keywords": ["AI", "Machine Learning", "Coding"],
+    "category": "Artificial Intelligence",
+    "type": "Timeless",
+    "bookmarked": true,
+    "used": false
+  },
+  {
+    "title": "The Problem with Lithium Batteries",
+    "description": "Environmental impact and emerging solid-state alternatives.",
+    "keywords": ["Energy", "Batteries", "Environment"],
+    "category": "Green Tech",
+    "type": "Trending",
+    "bookmarked": false,
+    "used": false
+  },
+  {
+    "title": "Review: The New VR Headset",
+    "description": "Hands-on review with gaming and productivity tests.",
+    "keywords": ["VR", "Hardware", "Review"],
+    "category": "Hardware",
+    "type": "Trending",
+    "bookmarked": true,
+    "used": true
+  },
+  {
+    "title": "Why 5G Matters for IoT",
+    "description": "Latency improvements and smart city enablement.",
+    "keywords": ["5G", "Internet", "Smart Home"],
+    "category": "Connectivity",
+    "type": "Timeless",
+    "bookmarked": false,
+    "used": false
+  },
+  {
+    "title": "Nanotechnology in Medicine",
+    "description": "Targeted drug delivery and cancer treatment breakthroughs.",
+    "keywords": ["Nano", "Health", "Future"],
+    "category": "Biotech",
+    "type": "Timeless",
+    "bookmarked": false,
+    "used": false
+  },
+  {
+    "title": "The James Webb Telescope's New Discovery",
+    "description": "Early galaxy formation and exoplanet atmospheres.",
+    "keywords": ["Space", "Astronomy", "Universe"],
+    "category": "Space",
+    "type": "Trending",
+    "bookmarked": true,
+    "used": false
+  },
+  {
+    "title": "Building a Raspberry Pi Server",
+    "description": "Step-by-step home server tutorial with Linux basics.",
+    "keywords": ["DIY", "Linux", "Server"],
+    "category": "Hardware",
+    "type": "Timeless",
+    "bookmarked": false,
+    "used": true
+  }
+]
