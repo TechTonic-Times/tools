@@ -12,6 +12,15 @@
     "bookmarked": false,
     "used": true
   },
+   {
+    "title": "Why Volcanoes Explode",
+    "description": "Learn how dissolved gases expand rapidly as magma rises and pressure drops, driving explosive eruptions if the magma is too viscous to let gas escape gently. Understand the role of silica content in eruption style.",
+    "keywords": ["Volcanology", "Magma", "Gas Pressure"],
+    "category": "Earth Science",
+    "type": "Timeless",
+    "bookmarked": false,
+    "used": false
+  },
   {
     "title": "Neural networks for image recognition",
     "description": "Understand how convolutional neural networks process visual data to identify objects and patterns. Discover the layered architecture that powers modern computer vision systems.",
