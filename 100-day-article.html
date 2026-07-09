@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Techtonic Times · 100-Day Viral Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f4f9fc;
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1a2e3f;
+      padding: 2rem 0;
+    }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+    }
+    .logo-area h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: #0c2d3e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-area h1 i { color: #1b8f8f; font-size: 2rem; }
+    .logo-area .badge {
+      background: #1b8f8f;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      background: white;
+      border: 1px solid #d4e4ec;
+      border-radius: 40px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #1a3b4f;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 4px rgba(0,20,30,0.02);
+      transition: 0.15s;
+      cursor: default;
+    }
+    .action-btn i { color: #1b8f8f; font-size: 0.9rem; }
+    .action-btn:hover { background: #e9f3f7; border-color: #8fc1c9; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.2rem;
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0,30,40,0.04);
+      margin-bottom: 2rem;
+      border: 1px solid #e1edf2;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .stat-icon {
+      background: #def0f0;
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #167070;
+    }
+    .stat-info .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #557a8a;
+      font-weight: 600;
+    }
+    .stat-info .value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0b2f3f;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0.4rem 0.2rem 0.8rem;
+      margin-bottom: 1.8rem;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid #dbe9ef;
+    }
+    .filter-bar::-webkit-scrollbar { height: 4px; }
+    .filter-bar::-webkit-scrollbar-thumb { background: #b0d0d8; border-radius: 20px; }
+    .filter-btn {
+      flex: 0 0 auto;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #d4e4ec;
+      background: white;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #1f5263;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .filter-btn.active {
+      background: #1b8f8f;
+      color: white;
+      border-color: #1b8f8f;
+    }
+    .filter-btn:hover:not(.active) { background: #e9f3f7; }
+
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .day-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.2rem 1.2rem 1rem;
+      box-shadow: 0 6px 16px rgba(0,30,40,0.03);
+      border: 1px solid #e3edf2;
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .day-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,50,60,0.06);
+      border-color: #bdd8e0;
+    }
+    .day-card .day-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .day-number {
+      background: #ddf0f0;
+      color: #136868;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .day-number input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #1b8f8f;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    .day-card .title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin: 0.25rem 0 0.3rem;
+    }
+    .day-card .title-row h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #0b2e3f;
+      flex: 1;
+    }
+    .day-card .title-row .copy-btn {
+      background: none;
+      border: none;
+      color: #8fb4bf;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: 0.15s;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .day-card .title-row .copy-btn:hover { color: #1b8f8f; background: #eef7f9; }
+    .day-card .title-row .copy-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .day-card .angle {
+      font-size: 0.78rem;
+      color: #3b6779;
+      background: #eef7f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 0.2rem 0 0.4rem;
+      width: fit-content;
+    }
+    .day-card .keywords-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin: 0.2rem 0 0.2rem;
+    }
+    .day-card .keywords-row .keywords {
+      font-size: 0.7rem;
+      color: #4e788a;
+      background: #f3f9fb;
+      padding: 0.25rem 0.6rem;
+      border-radius: 30px;
+      border: 1px solid #dce9ef;
+    }
+    .day-card .keywords-row .copy-btn {
+      background: none;
+      border: none;
+      color: #8fb4bf;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+    }
+    .day-card .keywords-row .copy-btn:hover { color: #1b8f8f; background: #eef7f9; }
+    .day-card .keywords-row .copy-btn svg { width: 13px; height: 13px; fill: currentColor; }
+
+    .day-card .category-tag {
+      margin-top: 6px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #1b7a7a;
+      background: #def0f0;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      align-self: flex-start;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      border-top: 1px solid #e5eff3;
+      padding-top: 10px;
+      justify-content: flex-end;
+    }
+    .card-actions button {
+      background: none;
+      border: none;
+      font-size: 0.75rem;
+      color: #1f6e7a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 30px;
+      transition: 0.1s;
+      font-weight: 500;
+    }
+    .card-actions button i { font-size: 0.85rem; }
+    .card-actions button:hover { background: #e1f0f2; color: #0f5a5a; }
+    .card-actions .delete-btn:hover { background: #fce8e8; color: #b33a3a; }
+
+    .header-icons {
+      display: flex;
+      gap: 8px;
+      color: #6d9aaa;
+    }
+    .header-icons .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 30px;
+      transition: 0.1s;
+      display: flex;
+      align-items: center;
+    }
+    .header-icons .icon-btn:hover { background: #e4f0f3; }
+    .header-icons .icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .header-icons .icon-btn.active svg { fill: #1b8f8f; }
+    .header-icons .icon-btn.heart-active svg { fill: #e66b7a; }
+
+    .progress-idea-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      background: white;
+      border-radius: 28px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #d4e4ec;
+      box-shadow: 0 6px 14px rgba(0,30,40,0.02);
+      margin-bottom: 2.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .progress-track {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .progress-track .label { font-weight: 600; color: #145a6b; display: flex; align-items: center; gap: 6px; }
+    .progress-track .label svg { width: 18px; height: 18px; fill: #145a6b; }
+    .progress-bar-bg {
+      width: 200px;
+      height: 8px;
+      background: #ddecf0;
+      border-radius: 40px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #1b9e9e, #39b5b5);
+      border-radius: 40px;
+      transition: width 0.2s;
+    }
+    .new-idea-trigger button {
+      background: #1b8f8f;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.15s;
+      border: 1px solid #1b8f8f;
+    }
+    .new-idea-trigger button:hover {
+      background: #0f7676;
+      border-color: #0f7676;
+      transform: scale(0.97);
+    }
+    .new-idea-trigger button svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10,30,40,0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .modal-overlay.active { visibility: visible; opacity: 1; }
+    .modal-box {
+      background: white;
+      max-width: 560px;
+      width: 90%;
+      border-radius: 32px;
+      padding: 2rem 2rem 1.8rem;
+      box-shadow: 0 30px 60px rgba(0,30,40,0.2);
+      transform: scale(0.95);
+      transition: 0.2s;
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); }
+    .modal-box h2 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0b2f3f;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-box h2 i { color: #1b8f8f; }
+    .modal-field { margin-bottom: 1.2rem; }
+    .modal-field label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #1f4f5f;
+      margin-bottom: 4px;
+    }
+    .modal-field input, .modal-field textarea, .modal-field select {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid #d4e4ec;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #f8fbfd;
+      transition: 0.15s;
+      outline: none;
+    }
+    .modal-field input:focus, .modal-field textarea:focus, .modal-field select:focus {
+      border-color: #1b8f8f;
+      box-shadow: 0 0 0 3px rgba(27,143,143,0.1);
+    }
+    .modal-field textarea { min-height: 70px; resize: vertical; border-radius: 20px; }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 1.8rem;
+    }
+    .modal-actions button {
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .modal-actions .btn-cancel { background: #e8f0f3; color: #1f5263; }
+    .modal-actions .btn-cancel:hover { background: #d5e4ea; }
+    .modal-actions .btn-submit { background: #1b8f8f; color: white; }
+    .modal-actions .btn-submit:hover { background: #0f7676; }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #5b7e8b;
+      text-align: center;
+      margin-top: 2.5rem;
+      border-top: 1px solid #dce9ef;
+      padding-top: 1.8rem;
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a3b4f;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: 0.3s;
+      pointer-events: none;
+      z-index: 2000;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 700px) {
+      .top-bar { flex-direction: column; align-items: start; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .progress-idea-section { flex-direction: column; align-items: stretch; }
+      .progress-bar-bg { width: 100%; }
+      .day-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="top-bar">
+    <div class="logo-area">
+      <h1><i class="fas fa-newspaper"></i> Techtonic Times <span class="badge">100-day viral</span></h1>
+    </div>
+    <div class="action-buttons">
+      <span class="action-btn"><i class="fas fa-bookmark"></i> Bookmarks (<span id="bookmarkCountHeader">0</span>)</span>
+      <span class="action-btn"><i class="fas fa-heart"></i> Bookmarked (<span id="saveCountHeader">0</span>)</span>
+      <span class="action-btn" id="openModalBtn"><i class="fas fa-plus-circle"></i> New idea</span>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-item"><div class="stat-icon"><i class="fas fa-calendar-day"></i></div><div class="stat-info"><span class="label">Total days</span><div class="value" id="dayCount">100</div></div></div>
+    <div class="stat-item"><div class="stat-icon"><i class="fas fa-bookmark"></i></div><div class="stat-info"><span class="label">Bookmarks</span><div class="value" id="bookmarkCount">0</div></div></div>
+    <div class="stat-item"><div class="stat-icon"><i class="fas fa-heart"></i></div><div class="stat-info"><span class="label">Bookmarked</span><div class="value" id="saveCount">0</div></div></div>
+    <div class="stat-item"><div class="stat-icon"><i class="fas fa-check-circle"></i></div><div class="stat-info"><span class="label">Completed</span><div class="value" id="completedCount">0/100</div></div></div>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">
+      <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> All
+    </button>
+    <button class="filter-btn" data-filter="fresh">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Fresh
+    </button>
+    <button class="filter-btn" data-filter="used">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Used (ticked)
+    </button>
+  </div>
+
+  <div class="progress-idea-section">
+    <div class="progress-track">
+      <span class="label">
+        <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        Overall progress
+      </span>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+      <span id="progressText" style="font-weight:500; color:#0f4d5a;">0 / 100</span>
+    </div>
+    <div class="new-idea-trigger">
+      <button id="openModalBtn2">
+        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        New idea
+      </button>
+    </div>
+  </div>
+
+  <div class="day-grid" id="dayGrid"></div>
+
+  <div class="footer-note"><i class="fas fa-sync-alt fa-fw"></i> Real-time tracking · bookmark & complete · plan 2026</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="ideaModal">
+  <div class="modal-box">
+    <h2 id="modalTitle"><i class="fas fa-pen-fancy"></i> Add custom idea</h2>
+    <div class="modal-field">
+      <label>Day number <span style="font-weight:400; color:#557a8a;">(1-100)</span></label>
+      <input type="number" id="modalDay" min="1" max="100" placeholder="e.g. 42" />
+    </div>
+    <div class="modal-field">
+      <label>Topic / Title</label>
+      <input type="text" id="modalTopic" placeholder="Catchy headline" />
+    </div>
+    <div class="modal-field">
+      <label>Angle</label>
+      <input type="text" id="modalAngle" placeholder="e.g. Market analysis (optional)" />
+    </div>
+    <div class="modal-field">
+      <label>Keywords (comma separated)</label>
+      <input type="text" id="modalKeywords" placeholder="AI, automation, future (optional)" />
+    </div>
+    <div class="modal-field">
+      <label>Category</label>
+      <select id="modalCategory">
+        <option value="AI">AI</option>
+        <option value="Tech">Tech</option>
+        <option value="Science">Science</option>
+        <option value="Future">Future</option>
+        <option value="Cyber">Cyber</option>
+        <option value="Digital">Digital</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="closeModalBtn">Cancel</button>
+      <button class="btn-submit" id="submitIdeaBtn"><i class="fas fa-save"></i> Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ----- PLAN DATA (100 items) -----
+    const planData = [
+      {day:1, topic:"GPT-5 Everything: Why Every App Will Need AI", angle:"How AI becomes OS layer", keywords:"AI integration, ChatGPT alternatives, AI apps", category:"AI"},
+      {day:2, topic:"Apple Intelligence 2.0: The iPhone That Thinks", angle:"AI on device revolution", keywords:"Apple AI, iPhone AI features, Siri upgrade", category:"AI"},
+      {day:3, topic:"AI Agents Are Coming to Your Bank Account", angle:"Financial AI automation", keywords:"AI banking, fintech automation, AI finance", category:"AI"},
+      {day:4, topic:"Claude vs GPT-5: The Real-World Test Results", angle:"Comparative review", keywords:"Claude vs GPT, best AI model, AI comparison", category:"AI"},
+      {day:5, topic:"How AI Is Replacing Middle Management", angle:"Corporate AI impact", keywords:"AI management, job automation, AI workforce", category:"AI"},
+      {day:6, topic:"The AI Glasses War: Meta vs Apple vs Google", angle:"Wearable AI battle", keywords:"AI glasses, smart glasses, Meta Ray-Ban", category:"Tech"},
+      {day:7, topic:"Deepfake Detection: Can You Tell What's Real?", angle:"Practical guide", keywords:"deepfake detection, fake video, AI detection", category:"Cyber"},
+      {day:8, topic:"Humanoid Robots: Which Companies Are Winning?", angle:"Market analysis", keywords:"humanoid robots, Tesla Optimus, AI robots", category:"Future"},
+      {day:9, topic:"AI in Healthcare: Diagnosing Better Than Doctors", angle:"Health AI breakthrough", keywords:"AI diagnosis, medical AI, health technology", category:"Science"},
+      {day:10, topic:"The AI Companion App That's Replacing Therapists", angle:"Mental health tech", keywords:"AI therapy, mental health app, AI chatbot", category:"AI"},
+      {day:11, topic:"Autonomous Vehicles: Why 2026 Is the Make-or-Break Year", angle:"Self-driving update", keywords:"autonomous cars, self-driving 2026, Tesla FSD", category:"Tech"},
+      {day:12, topic:"AI Writing Tools: The Complete 2026 Guide", angle:"Practical comparison", keywords:"best AI writer, Jasper alternative, AI content", category:"AI"},
+      {day:13, topic:"Quantum AI: When Quantum Computing Meets Machine Learning", angle:"Future tech fusion", keywords:"quantum AI, quantum machine learning, future AI", category:"Future"},
+      {day:14, topic:"AI-Powered Smart Homes: What Actually Works", angle:"Consumer guide", keywords:"smart home AI, home automation, AI devices", category:"Tech"},
+      {day:15, topic:"The AI Chip Race: Who Wins the Hardware Battle?", angle:"Market analysis", keywords:"AI chips, NVIDIA, AI processor, chip war", category:"Tech"},
+      {day:16, topic:"Robotaxis Are Here: Cities Where You Can Ride Today", angle:"Live status update", keywords:"robotaxi, autonomous taxi, Waymo, Cruise", category:"Future"},
+      {day:17, topic:"AI Video Generation: Sora vs Kling vs Stable Video", angle:"Tool comparison", keywords:"AI video, video generation, Sora, AI filmmaking", category:"AI"},
+      {day:18, topic:"The Countries Using AI to Govern", angle:"Government AI adoption", keywords:"AI government, digital governance, China AI", category:"AI"},
+      {day:19, topic:"AI in Education: Which Tools Actually Help Students", angle:"EdTech review", keywords:"AI learning, education AI, homework AI", category:"AI"},
+      {day:20, topic:"Brain-Computer Interfaces: Beyond Neuralink", angle:"Competitor analysis", keywords:"BCI, brain implant, neurotechnology, Neuralink", category:"Future"},
+      {day:21, topic:"AI Ethics: The Questions Nobody Can Answer", angle:"Opinion/analysis", keywords:"AI ethics, AI regulation, AI safety, OpenAI", category:"AI"},
+      {day:22, topic:"AI and Jobs: The Industries Most at Risk", angle:"Data-driven analysis", keywords:"AI job loss, automation, workforce AI", category:"AI"},
+      {day:23, topic:"The AI Hardware That's Replacing Your Laptop", angle:"New device category", keywords:"AI devices, AI laptop, Copilot PC, Snapdragon", category:"Tech"},
+      {day:24, topic:"Voice AI: The Technology That's Finally Getting Good", angle:"Voice assistant evolution", keywords:"voice AI, voice assistant, AI phone call", category:"AI"},
+      {day:25, topic:"AI Privacy: What Big Tech Knows About You", angle:"Data privacy concern", keywords:"AI privacy, data collection, tech privacy", category:"Cyber"},
+      {day:26, topic:"CRISPR 2.0: Gene Editing Gets Precision", angle:"Next-gen gene tech", keywords:"CRISPR 2.0, gene editing, genetic medicine", category:"Science"},
+      {day:27, topic:"Alzheimer's Breakthrough: What the New Drug Actually Does", angle:"Medical explainer", keywords:"Alzheimer's drug, lecanemab, dementia cure", category:"Science"},
+      {day:28, topic:"The Longevity Industry: Separating Hype from Hope", angle:"Scientific analysis", keywords:"longevity science, anti-aging, lifespan extension", category:"Science"},
+      {day:29, topic:"Lab-Grown Organs: The Year They Become Real", angle:"Medical milestone", keywords:"lab-grown organ, organ transplant, bioengineering", category:"Science"},
+      {day:30, topic:"The Microbiome Revolution: Your Gut Controls Everything", angle:"Health explainer", keywords:"gut health, microbiome, gut-brain connection", category:"Science"},
+      {day:31, topic:"Cancer Vaccines: mRNA Tech's Next Frontier", angle:"Cancer treatment", keywords:"cancer vaccine, mRNA cancer, immunotherapy", category:"Science"},
+      {day:32, topic:"Sleep Science: What 8 Hours Actually Means", angle:"Health optimization", keywords:"sleep science, better sleep, sleep optimization", category:"Science"},
+      {day:33, topic:"The Mental Health Crisis: Tech Solutions That Work", angle:"Mental health tech", keywords:"mental health app, anxiety tech, digital therapy", category:"Science"},
+      {day:34, topic:"Obesity Drugs: How GLP-1 Is Reshaping Society", angle:"Social impact analysis", keywords:"Ozempic, GLP-1, weight loss drug, obesity", category:"Science"},
+      {day:35, topic:"Wearable Health Monitors: What Your Watch Knows", angle:"Consumer guide", keywords:"health watch, wearable health, Apple health", category:"Tech"},
+      {day:36, topic:"Mental Health AI: Friend or Danger?", angle:"Controversy piece", keywords:"AI therapist, mental health AI, AI companion", category:"AI"},
+      {day:37, topic:"The Science of Stress: Why It Ages You Fast", angle:"Health explainer", keywords:"stress aging, cortisol, telomere, anti-aging", category:"Science"},
+      {day:38, topic:"Precision Medicine: Your DNA, Your Treatment", angle:"Personalization era", keywords:"precision medicine, DNA treatment, genomic medicine", category:"Science"},
+      {day:39, topic:"Climate Change and Your Health: The Invisible Threat", angle:"Health + climate", keywords:"climate health, air quality, health threat", category:"Science"},
+      {day:40, topic:"The Rise of Psychedelic Medicine", angle:"Medical revolution", keywords:"psychedelic therapy, MDMA treatment, mental health", category:"Science"},
+      {day:41, topic:"AI Drug Discovery: Cutting Years Off Development", angle:"Pharma tech", keywords:"AI drug discovery, pharma AI, drug development", category:"AI"},
+      {day:42, topic:"Hearing Loss Revolution: The Tech Fixing Ears", angle:"Medical tech", keywords:"hearing aid, cochlear implant, ear tech", category:"Tech"},
+      {day:43, topic:"Sleep Apnea: The Technology Saving Lives", angle:"Medical devices", keywords:"sleep apnea, CPAP, sleep tech, respiratory", category:"Tech"},
+      {day:44, topic:"The Future of Blood Testing: What Your Blood Reveals", angle:"Diagnostics", keywords:"blood test future, liquid biopsy, blood analysis", category:"Science"},
+      {day:45, topic:"Why Vaccines Still Matter in 2026", angle:"Public health", keywords:"vaccine importance, immunization, public health", category:"Science"},
+      {day:46, topic:"The Science of Happiness: What Actually Works", angle:"Positive psychology", keywords:"happiness science, well-being, positive psychology", category:"Science"},
+      {day:47, topic:"Microplastics in Your Body: The Health Crisis", angle:"Emerging concern", keywords:"microplastics health, plastic in body, toxins", category:"Science"},
+      {day:48, topic:"Telemedicine Evolution: The Doctor Will Zoom You Now", angle:"Healthcare tech", keywords:"telemedicine, virtual doctor, telehealth 2026", category:"Tech"},
+      {day:49, topic:"The Exercise Myth: What Science Says About Fitness", angle:"Fitness science", keywords:"exercise science, optimal workout, fitness research", category:"Science"},
+      {day:50, topic:"Antibiotic Resistance: The Pandemic Nobody Talks About", angle:"Health crisis", keywords:"antibiotic resistance, superbugs, drug resistance", category:"Science"},
+      {day:51, topic:"Space Tourism: The Price Drop That's Coming", angle:"Consumer space", keywords:"space tourism, SpaceX, Blue Origin, space travel", category:"Future"},
+      {day:52, topic:"Mars Colony: The Timeline That Might Actually Happen", angle:"Mars planning", keywords:"Mars colony, Mars mission, SpaceX Mars", category:"Science"},
+      {day:53, topic:"The Space Economy: Trillion-Dollar Industry", angle:"Economic analysis", keywords:"space economy, satellite business, space industry", category:"Future"},
+      {day:54, topic:"Mini Reactors: Nuclear Power Gets Portable", angle:"Energy innovation", keywords:"small nuclear reactor, portable nuclear, microreactor", category:"Tech"},
+      {day:55, topic:"The Battery Revolution: Beyond Lithium", angle:"Energy storage", keywords:"solid state battery, battery tech, energy storage", category:"Tech"},
+      {day:56, topic:"Solar Power 2.0: The Efficiency Breakthrough", angle:"Energy update", keywords:"solar efficiency, perovskite solar, solar tech", category:"Tech"},
+      {day:57, topic:"The Grid Upgrade: Why Blackouts Are Coming", angle:"Infrastructure crisis", keywords:"power grid, electricity grid, energy infrastructure", category:"Tech"},
+      {day:58, topic:"Nuclear Fusion: The Progress Report", angle:"Fusion update", keywords:"nuclear fusion, fusion energy, ITER, fusion reactor", category:"Science"},
+      {day:59, topic:"Green Hydrogen: The Promise and Problems", angle:"Energy analysis", keywords:"green hydrogen, hydrogen fuel, clean energy", category:"Tech"},
+      {day:60, topic:"Offshore Wind: The Energy Revolution at Sea", angle:"Wind energy", keywords:"offshore wind, wind farm, renewable energy", category:"Tech"},
+      {day:61, topic:"The Moon Economy: Mining the Sky", angle:"Space business", keywords:"moon mining, lunar resources, space mining", category:"Future"},
+      {day:62, topic:"Satellite Internet: Who's Winning the Race", angle:"Market analysis", keywords:"satellite internet, Starlink, OneWeb, Amazon Kuiper", category:"Tech"},
+      {day:63, topic:"Asteroid Mining: Science Fiction or Science Fact?", angle:"Space resource", keywords:"asteroid mining, space mining, resource extraction", category:"Future"},
+      {day:64, topic:"The Space Force: Militarization of Orbit", angle:"Geopolitics", keywords:"space military, Space Force, space warfare", category:"Future"},
+      {day:65, topic:"Clean Energy Investing: Where the Money Goes", angle:"Financial guide", keywords:"clean energy investment, green stocks, ESG", category:"Tech"},
+      {day:66, topic:"Carbon Capture: Can We Actually Suck CO2 From Air?", angle:"Climate tech", keywords:"carbon capture, direct air capture, DAC, climate tech", category:"Tech"},
+      {day:67, topic:"Smart Grids: The Tech Saving Energy", angle:"Grid technology", keywords:"smart grid, energy management, power tech", category:"Tech"},
+      {day:68, topic:"Vertical Farming: Growing Food in Cities", angle:"Food tech", keywords:"vertical farming, urban agriculture, indoor farm", category:"Tech"},
+      {day:69, topic:"The Geothermal Revolution: Earth's Hidden Power", angle:"Energy source", keywords:"geothermal energy, earth heat, renewable power", category:"Tech"},
+      {day:70, topic:"Electric Aviation: The Planes That Will Fly", angle:"Transport future", keywords:"electric plane, eVTOL, air taxi, electric aviation", category:"Tech"},
+      {day:71, topic:"Space Junk: The Crisis Orbiting Earth", angle:"Environmental issue", keywords:"space debris, space junk, orbital pollution", category:"Science"},
+      {day:72, topic:"Fusion vs Fission: The Nuclear Debate Explained", angle:"Energy comparison", keywords:"fusion vs fission, nuclear energy, power comparison", category:"Science"},
+      {day:73, topic:"The Water Crisis: Tech Solutions for Thirst", angle:"Global challenge", keywords:"water crisis, water tech, desalination", category:"Tech"},
+      {day:74, topic:"Climate Tech Startups: The Ones to Watch", angle:"Investment opportunity", keywords:"climate tech, green startup, climate innovation", category:"Tech"},
+      {day:75, topic:"The Energy Transition: Are We Actually Winning?", angle:"Progress report", keywords:"energy transition, renewable growth, climate progress", category:"Science"},
+      {day:76, topic:"The TikTok Algorithm: How It Actually Works", angle:"Platform揭秘", keywords:"TikTok algorithm, TikTok secret, viral formula", category:"Digital"},
+      {day:77, topic:"Creator Economy 2026: Who's Making Money", angle:"Creator economy", keywords:"creator economy, influencer income, content creator", category:"Digital"},
+      {day:78, topic:"The Death of Passwords: What's Replacing Them", angle:"Security tech", keywords:"passwordless, passkey, biometric login", category:"Cyber"},
+      {day:79, topic:"Digital Privacy: The Complete Guide", angle:"Privacy protection", keywords:"digital privacy, online privacy, data protection", category:"Cyber"},
+      {day:80, topic:"Social Media Addiction: The Tech Exploiting You", angle:"Mental health", keywords:"social media addiction, phone addiction, digital wellness", category:"Digital"},
+      {day:81, topic:"Crypto in 2026: After the Crash, What Survived", angle:"Crypto update", keywords:"crypto 2026, Bitcoin, blockchain, cryptocurrency", category:"Tech"},
+      {day:82, topic:"The Metaverse: Dead or Just Different?", angle:"Reality check", keywords:"metaverse, VR, AR, virtual reality, spatial computing", category:"Tech"},
+      {day:83, topic:"Smart Home Showdown: The Ecosystem Battle", angle:"Consumer comparison", keywords:"smart home, Apple HomeKit, Google Home, Amazon Alexa", category:"Tech"},
+      {day:84, topic:"VPN Services: The Ones You Can Actually Trust", angle:"Security guide", keywords:"best VPN, VPN privacy, VPN service", category:"Cyber"},
+      {day:85, topic:"Streaming Wars: Who's Winning in 2026", angle:"Platform battle", keywords:"streaming service, Netflix, Disney+, streaming comparison", category:"Digital"},
+      {day:86, topic:"The Best Smartphone of 2026: Full Comparison", angle:"Consumer guide", keywords:"best phone 2026, iPhone vs Samsung, smartphone review", category:"Tech"},
+      {day:87, topic:"Digital Identity: Who Owns Your Online Self", angle:"Identity tech", keywords:"digital identity, digital ID, online identity", category:"Cyber"},
+      {day:88, topic:"Cloud Gaming: Why It's Finally Good", angle:"Gaming tech", keywords:"cloud gaming, Xbox Cloud, GeForce Now, PlayStation Now", category:"Tech"},
+      {day:89, topic:"Privacy-First Apps: The Alternative Worth Using", angle:"App alternatives", keywords:"privacy app, alternative to Facebook, secure messaging", category:"Cyber"},
+      {day:90, topic:"The Gig Economy: Apps That Actually Pay", angle:"Work platform", keywords:"gig economy, delivery app, work app, side hustle", category:"Digital"},
+      {day:91, topic:"AI Generated Content: Can You Spot the Fakes?", angle:"Media literacy", keywords:"AI content, deepfake, synthetic media, AI detection", category:"Digital"},
+      {day:92, topic:"The Future of Search: AI vs Google", angle:"Search evolution", keywords:"AI search, Perplexity, Google alternatives, search AI", category:"AI"},
+      {day:93, topic:"Wearables Beyond Watch: Tech You Wear", angle:"Wearable tech", keywords:"smart ring, health wearable, fitness tracker, wearable tech", category:"Tech"},
+      {day:94, topic:"Digital Minimalism: Taking Back Your Time", angle:"Lifestyle guide", keywords:"digital detox, screen time, tech balance", category:"Digital"},
+      {day:95, topic:"The Best Budget Tech: Value Under $100", angle:"Consumer guide", keywords:"budget tech, cheap gadget, best value tech", category:"Tech"},
+      {day:96, topic:"Biometric Security: Fingerprints, Faces, and Beyond", angle:"Security tech", keywords:"biometric security, face unlock, fingerprint", category:"Cyber"},
+      {day:97, topic:"Podcasts vs Video: The Content Format Battle", angle:"Media format", keywords:"podcast vs YouTube, content format, creator choice", category:"Digital"},
+      {day:98, topic:"Open Source Revolution: Who Wins When Code Is Free", angle:"Software philosophy", keywords:"open source, free software, Linux, open AI", category:"Tech"},
+      {day:99, topic:"Your Data Rights: The Laws That Protect You", angle:"Legal guide", keywords:"data rights, GDPR, CCPA, privacy law", category:"Cyber"},
+      {day:100, topic:"The Next 100 Days: Tech Trends That Will Define 2027", angle:"Prediction piece", keywords:"tech trends 2027, future tech, what's next in tech", category:"Future"}
+    ];
+
+    // ----- LOCAL STORAGE HELPERS -----
+    function loadState(key, defaultVal) {
+      try {
+        const data = localStorage.getItem('tt_' + key);
+        if (data) return JSON.parse(data);
+      } catch(e) {}
+      return defaultVal;
+    }
+
+    function saveState(key, val) {
+      localStorage.setItem('tt_' + key, JSON.stringify(val));
+    }
+
+    // ----- STATE (with localStorage) -----
+    let bookmarks = new Set(loadState('bookmarks', []));
+    let saved = new Set(loadState('saved', []));
+    let completed = new Set(loadState('completed', []));
+    let customIdeas = loadState('customIdeas', []);
+    let currentFilter = loadState('filter', 'all');
+
+    // ----- DOM refs -----
+    const dayGrid = document.getElementById('dayGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const bookmarkCountEl = document.getElementById('bookmarkCount');
+    const saveCountEl = document.getElementById('saveCount');
+    const completedCountEl = document.getElementById('completedCount');
+    const bookmarkCountHeader = document.getElementById('bookmarkCountHeader');
+    const saveCountHeader = document.getElementById('saveCountHeader');
+    const toast = document.getElementById('toast');
+
+    const modalOverlay = document.getElementById('ideaModal');
+    const modalDay = document.getElementById('modalDay');
+    const modalTopic = document.getElementById('modalTopic');
+    const modalAngle = document.getElementById('modalAngle');
+    const modalKeywords = document.getElementById('modalKeywords');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const submitIdeaBtn = document.getElementById('submitIdeaBtn');
+    const openModalBtns = [document.getElementById('openModalBtn'), document.getElementById('openModalBtn2')];
+
+    // ----- helpers -----
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function getItem(day) {
+      const base = planData.find(p => p.day === day);
+      const custom = customIdeas.find(c => c.day === day);
+      if (custom) return { ...base, ...custom, isCustom: true };
+      return base ? { ...base, isCustom: false } : null;
+    }
+
+    function getAllItems() {
+      return planData.map(p => {
+        const custom = customIdeas.find(c => c.day === p.day);
+        if (custom) return { ...p, ...custom, isCustom: true };
+        return { ...p, isCustom: false };
+      });
+    }
+
+    function getFilteredItems() {
+      let items = getAllItems();
+      if (currentFilter === 'fresh') {
+        items = items.filter(item => !completed.has(item.day));
+      } else if (currentFilter === 'used') {
+        items = items.filter(item => completed.has(item.day));
+      }
+      items.sort((a, b) => {
+        const aDone = completed.has(a.day);
+        const bDone = completed.has(b.day);
+        if (aDone && !bDone) return 1;
+        if (!aDone && bDone) return -1;
+        return a.day - b.day;
+      });
+      return items;
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to clipboard!');
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('Copied!');
+      });
+    }
+
+    // ----- PERSISTENCE -----
+    function persistAll() {
+      saveState('bookmarks', Array.from(bookmarks));
+      saveState('saved', Array.from(saved));
+      saveState('completed', Array.from(completed));
+      saveState('customIdeas', customIdeas);
+      saveState('filter', currentFilter);
+    }
+
+    // ----- RENDER -----
+    function render() {
+      const items = getFilteredItems();
+      const allDays = planData.length;
+      const completedCount = completed.size;
+
+      bookmarkCountEl.textContent = bookmarks.size;
+      saveCountEl.textContent = saved.size;
+      bookmarkCountHeader.textContent = bookmarks.size;
+      saveCountHeader.textContent = saved.size;
+      completedCountEl.textContent = `${completedCount}/${allDays}`;
+
+      const pct = Math.min(100, Math.round((completedCount / allDays) * 100));
+      progressFill.style.width = pct + '%';
+      progressText.textContent = `${completedCount} / ${allDays}`;
+
+      dayGrid.innerHTML = '';
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'day-card';
+        const isBookmarked = bookmarks.has(item.day);
+        const isSaved = saved.has(item.day);
+        const isCompleted = completed.has(item.day);
+
+        card.innerHTML = `
+          <div class="day-meta">
+            <span class="day-number">
+              <i class="far fa-calendar-alt"></i> Day ${item.day}
+              <input type="checkbox" ${isCompleted ? 'checked' : ''} data-day="${item.day}" class="complete-check" />
+            </span>
+            <div class="header-icons">
+              <button class="icon-btn ${isBookmarked ? 'active' : ''}" data-action="bookmark" data-day="${item.day}" title="Bookmark">
+                <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+              </button>
+              <button class="icon-btn ${isSaved ? 'heart-active' : ''}" data-action="save" data-day="${item.day}" title="Bookmarked">
+                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="title-row">
+            <h3>${item.topic} ${item.isCustom ? '<span style="font-weight:400; color:#1b8f8f; font-size:0.6rem;">✨ custom</span>' : ''}</h3>
+            <button class="copy-btn" data-copy="topic" data-day="${item.day}" title="Copy title">
+              <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+          </div>
+          <span class="angle">${item.angle || 'Not provided'}</span>
+          <div class="keywords-row">
+            <span class="keywords"><i class="fas fa-tag"></i> ${item.keywords || 'Not provided'}</span>
+            <button class="copy-btn" data-copy="keywords" data-day="${item.day}" title="Copy keywords">
+              <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+          </div>
+          <span class="category-tag"><i class="fas fa-folder-open"></i> ${item.category || 'Not provided'}</span>
+          <div class="card-actions">
+            <button class="edit-btn" data-day="${item.day}"><i class="fas fa-edit"></i> Edit</button>
+            <button class="delete-btn" data-day="${item.day}"><i class="fas fa-trash-alt"></i> Delete</button>
+          </div>
+        `;
+        dayGrid.appendChild(card);
+      });
+
+      // checkbox
+      document.querySelectorAll('.complete-check').forEach(cb => {
+        cb.addEventListener('change', function() {
+          const day = parseInt(this.dataset.day);
+          if (this.checked) completed.add(day);
+          else completed.delete(day);
+          persistAll();
+          render();
+        });
+      });
+
+      // bookmark & save
+      document.querySelectorAll('.header-icons .icon-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const action = this.dataset.action;
+          const day = parseInt(this.dataset.day);
+          if (action === 'bookmark') {
+            if (bookmarks.has(day)) bookmarks.delete(day);
+            else bookmarks.add(day);
+            persistAll();
+            render();
+          } else if (action === 'save') {
+            if (saved.has(day)) saved.delete(day);
+            else saved.add(day);
+            persistAll();
+            render();
+          }
+        });
+      });
+
+      // copy
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const day = parseInt(this.dataset.day);
+          const type = this.dataset.copy;
+          const item = getItem(day);
+          if (!item) return;
+          let text = type === 'topic' ? item.topic : item.keywords;
+          if (text) copyToClipboard(text);
+        });
+      });
+
+      // edit & delete
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const day = parseInt(this.dataset.day);
+          openEditModal(day);
+        });
+      });
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const day = parseInt(this.dataset.day);
+          if (confirm(`Delete custom idea for Day ${day}?`)) {
+            customIdeas = customIdeas.filter(c => c.day !== day);
+            persistAll();
+            render();
+            showToast('Deleted!');
+          }
+        });
+      });
+    }
+
+    // ----- MODAL -----
+    function openModal(day = null) {
+      modalOverlay.classList.add('active');
+      if (day) {
+        editingDay = day;
+        modalTitle.innerHTML = '<i class="fas fa-edit"></i> Edit idea';
+        const item = getItem(day);
+        if (item) {
+          modalDay.value = item.day;
+          modalDay.disabled = true;
+          modalTopic.value = item.topic || '';
+          modalAngle.value = item.angle || '';
+          modalKeywords.value = item.keywords || '';
+          modalCategory.value = item.category || 'AI';
+        }
+      } else {
+        editingDay = null;
+        modalTitle.innerHTML = '<i class="fas fa-pen-fancy"></i> Add custom idea';
+        modalDay.disabled = false;
+        modalDay.value = '';
+        modalTopic.value = '';
+        modalAngle.value = '';
+        modalKeywords.value = '';
+        modalCategory.value = 'AI';
+      }
+    }
+
+    let editingDay = null;
+    function openEditModal(day) { openModal(day); }
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      modalDay.disabled = false;
+      editingDay = null;
+    }
+
+    openModalBtns.forEach(btn => btn.addEventListener('click', () => openModal()));
+    closeModalBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    submitIdeaBtn.addEventListener('click', function() {
+      const day = parseInt(modalDay.value);
+      const topic = modalTopic.value.trim();
+      const angle = modalAngle.value.trim() || 'Not provided';
+      const keywords = modalKeywords.value.trim() || 'Not provided';
+      const category = modalCategory.value || 'Not provided';
+
+      if (!day || day < 1 || day > 100) { alert('Please enter a valid day (1-100)'); return; }
+      if (!topic) { alert('Please enter a topic'); return; }
+
+      if (editingDay !== null) {
+        customIdeas = customIdeas.filter(c => c.day !== editingDay);
+      }
+      customIdeas.push({ day, topic, angle, keywords, category });
+      persistAll();
+      closeModal();
+      render();
+      showToast('Idea saved!');
+    });
+
+    // ----- FILTER -----
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        persistAll();
+        render();
+      });
+    });
+
+    // set active filter on load
+    filterBtns.forEach(btn => {
+      if (btn.dataset.filter === currentFilter) btn.classList.add('active');
+    });
+
+    // ----- INIT -----
+    render();
+  })();
+</script>
+</body>
+</html>
