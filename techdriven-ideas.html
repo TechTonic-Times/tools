@@ -1,0 +1,3618 @@
+<!doctype html>
+<!-- Self-contained LearnDriven Shorts hub: styles, data, and behavior are embedded in this file. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A focused, topic-first way to explore LearnDriven YouTube Shorts."
+    />
+    <meta name="theme-color" content="#0a8f89" />
+    <title>TechDriven Ideas — LearnDriven Shorts Topic Hub</title>
+    <style>
+:root {
+  --ink: #093a38;
+  --ink-soft: #386966;
+  --muted: #6d8987;
+  --line: #dcebea;
+  --line-strong: #c8dfdc;
+  --surface: #ffffff;
+  --surface-tint: #f4fbfa;
+  --teal-950: #063c39;
+  --teal-900: #075b56;
+  --teal-800: #087a73;
+  --teal-700: #0a938b;
+  --teal-600: #11a79e;
+  --teal-500: #25b8ad;
+  --teal-300: #8bd7d0;
+  --teal-200: #bfe9e5;
+  --teal-100: #ddf4f1;
+  --lime: #d8f55f;
+  --warning: #f3b563;
+  --shadow-sm: 0 8px 22px rgba(10, 76, 72, 0.08);
+  --shadow-md: 0 18px 50px rgba(9, 73, 69, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 102% 12%, rgba(17, 167, 158, 0.07), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 40%, #f9fdfc 100%);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid rgba(17, 167, 158, 0.35);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: white;
+  background: var(--teal-900);
+  font-weight: 800;
+  transition: transform 180ms ease;
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+.site-header {
+  position: sticky;
+  z-index: 40;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1250px, calc(100% - 48px));
+  height: 76px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(220, 235, 234, 0.75);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--teal-950);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+.brand > span:last-child span { color: var(--teal-700); }
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--teal-800);
+  background: var(--teal-100);
+}
+.brand-mark svg { width: 28px; height: 28px; }
+
+.header-actions { display: flex; align-items: center; gap: 7px; }
+.nav-link {
+  padding: 9px 11px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 700;
+}
+.nav-link:hover { color: var(--teal-800); }
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink-soft);
+  background: white;
+}
+.icon-button:hover { color: var(--teal-800); border-color: var(--teal-200); }
+.icon-button svg, .filter-icon svg, .search-field svg, .button svg, .reset-button svg, .back-to-top svg, .sort-select svg, .view-button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.key-hint, kbd {
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: var(--muted);
+  background: var(--surface-tint);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+main { width: min(1250px, calc(100% - 48px)); margin: 0 auto; }
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(370px, 0.95fr);
+  min-height: 530px;
+  align-items: center;
+  overflow: hidden;
+  padding: 74px 55px 65px;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  background:
+    radial-gradient(circle at 68% 20%, rgba(195, 248, 241, 0.78), transparent 17rem),
+    linear-gradient(130deg, #ecfbf9 0%, #ffffff 72%);
+}
+.hero::before {
+  position: absolute;
+  top: 0;
+  left: 53%;
+  width: 1px;
+  height: 100%;
+  content: "";
+  background: linear-gradient(transparent, rgba(10, 147, 139, 0.13), transparent);
+}
+.hero-copy { position: relative; z-index: 2; max-width: 625px; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px;
+  color: var(--teal-800);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+.eyebrow span { display: inline-block; width: 19px; height: 2px; background: currentColor; }
+.hero h1, .section-heading h2, .library-heading h2 {
+  margin: 0;
+  color: var(--teal-950);
+  letter-spacing: -2.3px;
+  line-height: 1.04;
+}
+.hero h1 { max-width: 630px; font-size: clamp(42px, 5.1vw, 72px); }
+.hero h1 em { color: var(--teal-700); font-family: Georgia, "Times New Roman", serif; font-weight: 500; }
+.hero-description { max-width: 540px; margin: 22px 0 28px; color: var(--ink-soft); font-size: 17px; line-height: 1.65; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 17px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button-primary { color: #fff; background: var(--teal-800); box-shadow: 0 10px 20px rgba(8, 122, 115, 0.22); }
+.button-primary:hover { background: var(--teal-900); box-shadow: 0 14px 25px rgba(8, 122, 115, 0.28); }
+.button-secondary { color: var(--teal-900); border-color: var(--teal-200); background: rgba(255, 255, 255, 0.72); }
+.button-secondary:hover { border-color: var(--teal-700); background: white; }
+.button svg { width: 17px; height: 17px; }
+
+.hero-stats { display: flex; gap: 0; margin-top: 45px; }
+.hero-stats div { min-width: 100px; padding: 0 21px; border-left: 1px solid var(--line-strong); }
+.hero-stats div:first-child { padding-left: 0; border: 0; }
+.hero-stats strong { display: block; color: var(--teal-950); font-size: 22px; letter-spacing: -0.7px; }
+.hero-stats span { color: var(--muted); font-size: 12px; font-weight: 650; }
+
+.hero-art { position: relative; height: 100%; min-height: 370px; }
+.orbit { position: absolute; border: 1px solid rgba(10, 147, 139, 0.22); border-radius: 50%; }
+.orbit-one { top: 55px; right: 25px; width: 350px; height: 350px; }
+.orbit-two { top: 111px; right: 84px; width: 235px; height: 235px; border-style: dashed; }
+.hero-card {
+  position: absolute;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(6px);
+}
+.card-one {
+  top: 61px;
+  right: 87px;
+  width: 208px;
+  height: 258px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 27px;
+  color: white;
+  background: linear-gradient(145deg, #097c75, #0da69b 68%, #78d8cd);
+  transform: rotate(7deg);
+}
+.card-one::after { position: absolute; right: -32px; bottom: -48px; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; content: ""; }
+.mini-label { position: relative; z-index: 2; font-size: 10px; font-weight: 800; letter-spacing: 1.3px; opacity: .72; }
+.card-one strong { position: relative; z-index: 2; display: block; margin-top: 58px; font-size: 27px; letter-spacing: -1px; line-height: 1.03; }
+.mini-icon { position: absolute; z-index: 2; right: 25px; bottom: 21px; color: var(--lime); font-size: 36px; }
+.card-two {
+  right: 246px;
+  bottom: 56px;
+  display: flex;
+  width: 190px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--teal-200);
+  border-radius: 17px;
+  color: var(--teal-950);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.35;
+  transform: rotate(-5deg);
+}
+.play-pulse { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border-radius: 50%; color: white; background: var(--teal-700); box-shadow: 0 0 0 7px var(--teal-100); }
+.play-pulse svg { width: 19px; height: 19px; fill: currentColor; }
+.hero-dots { position: absolute; right: 20px; bottom: 38px; width: 79px; height: 57px; opacity: .5; background-image: radial-gradient(var(--teal-600) 1.3px, transparent 1.6px); background-size: 11px 11px; }
+
+.topic-section { padding: 104px 0 82px; }
+.section-heading, .library-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; }
+.section-heading h2, .library-heading h2 { font-size: clamp(30px, 3vw, 42px); }
+.text-button { display: inline-flex; align-items: center; gap: 9px; padding: 8px 0; border: none; color: var(--teal-800); background: transparent; font-size: 14px; font-weight: 800; }
+.text-button span { font-size: 19px; transition: transform 160ms ease; }
+.text-button:hover span { transform: translateX(4px); }
+.topic-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 31px; }
+.topic-card {
+  position: relative;
+  min-height: 170px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  color: var(--ink);
+  text-align: left;
+  background: var(--surface);
+  box-shadow: 0 2px 0 rgba(9, 58, 56, 0.01);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.topic-card:hover, .topic-card.active { border-color: var(--topic-color, var(--teal-600)); box-shadow: var(--shadow-sm); transform: translateY(-4px); }
+.topic-card.active { background: var(--topic-soft, var(--teal-100)); }
+.topic-card::after { position: absolute; right: -31px; bottom: -39px; width: 112px; height: 112px; border: 1px solid var(--topic-color, var(--teal-600)); border-radius: 50%; content: ""; opacity: .17; }
+.topic-card:hover::after { opacity: .35; }
+.topic-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; color: var(--topic-color, var(--teal-700)); background: var(--topic-soft, var(--teal-100)); font-size: 21px; }
+.topic-card h3 { position: relative; z-index: 2; margin: 29px 0 5px; font-size: 15px; letter-spacing: -0.3px; }
+.topic-card p { position: relative; z-index: 2; margin: 0; color: var(--muted); font-size: 12px; font-weight: 700; }
+.topic-arrow { position: absolute; z-index: 3; right: 16px; top: 18px; color: var(--topic-color, var(--teal-700)); font-size: 20px; }
+
+.library-section { display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: 36px; align-items: start; padding: 45px 0 100px; border-top: 1px solid var(--line); }
+.filter-panel { position: sticky; top: 96px; padding: 17px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-sm); }
+.filter-panel-head { display: flex; align-items: center; gap: 10px; padding: 5px 4px 15px; }
+.filter-panel-head p { margin: 0 0 2px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
+.filter-panel-head strong { color: var(--teal-950); font-size: 15px; letter-spacing: -0.3px; }
+.filter-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; color: var(--teal-800); background: var(--teal-100); }
+.filter-icon svg { width: 19px; height: 19px; }
+.search-field { display: flex; align-items: center; gap: 8px; min-height: 43px; padding: 0 11px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); background: var(--surface-tint); transition: border 160ms ease, box-shadow 160ms ease, background 160ms ease; }
+.search-field:focus-within { border-color: var(--teal-600); background: white; box-shadow: 0 0 0 4px rgba(17,167,158,.1); }
+.search-field svg { width: 17px; height: 17px; flex: 0 0 auto; }
+.search-field input { width: 100%; min-width: 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 13px; }
+.search-field input::placeholder { color: #94aaa8; }
+.search-field kbd { color: #95aaa8; background: rgba(255,255,255,.66); }
+.filter-group { padding: 19px 4px 0; }
+.filter-label { margin: 0 0 9px; color: var(--ink-soft); font-size: 11px; font-weight: 850; letter-spacing: .8px; text-transform: uppercase; }
+.check-row { position: relative; display: flex; align-items: center; gap: 9px; padding: 9px 3px; cursor: pointer; }
+.check-row input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.custom-check { display: grid; width: 18px; height: 18px; flex: 0 0 18px; place-items: center; border: 1.5px solid #b9d5d2; border-radius: 6px; color: white; background: white; transition: background 160ms ease, border 160ms ease; }
+.custom-check svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: scale(.6); transition: opacity 150ms ease, transform 150ms ease; }
+.check-row input:checked + .custom-check { border-color: var(--teal-700); background: var(--teal-700); }
+.check-row input:checked + .custom-check svg { opacity: 1; transform: scale(1); }
+.check-row strong { display: block; color: var(--ink); font-size: 13px; }
+.check-row small { display: block; margin-top: 1px; color: var(--muted); font-size: 10.5px; font-weight: 600; }
+.latest-row { margin: 0 -7px; padding: 10px; border: 1px solid var(--teal-200); border-radius: 11px; background: linear-gradient(90deg, var(--teal-100), #f8fdfc); }
+.filter-label-row { display: flex; align-items: center; justify-content: space-between; }
+.filter-label-row button { padding: 0; border: 0; color: var(--teal-800); background: transparent; font-size: 11px; font-weight: 800; }
+.topic-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.topic-filter { padding: 7px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: white; font-size: 11px; font-weight: 750; transition: color 160ms ease, border 160ms ease, background 160ms ease; }
+.topic-filter:hover { border-color: var(--teal-200); color: var(--teal-800); }
+.topic-filter.active { border-color: var(--teal-700); color: white; background: var(--teal-700); }
+.learning-progress { margin-top: 21px; padding: 14px; border-radius: 14px; background: var(--teal-950); }
+.progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; color: white; font-size: 11px; font-weight: 750; }
+.progress-head strong { color: var(--lime); font-size: 11px; }
+.progress-track { height: 6px; margin: 11px 0 8px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.18); }
+.progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--lime); transition: width 300ms ease; }
+.learning-progress p { margin: 0; color: rgba(255,255,255,.67); font-size: 10px; line-height: 1.4; }
+.reset-button { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; padding: 3px 0; border: 0; color: var(--muted); background: transparent; font-size: 11px; font-weight: 750; }
+.reset-button:hover { color: var(--teal-800); }
+.reset-button svg { width: 15px; height: 15px; }
+
+.library-content { min-width: 0; }
+.library-heading { min-height: 90px; margin-bottom: 23px; }
+.library-heading .eyebrow { margin-bottom: 10px; }
+.results-copy { margin: 9px 0 0; color: var(--muted); font-size: 13px; font-weight: 600; }
+.library-tools { display: flex; align-items: center; gap: 10px; }
+.sort-select { position: relative; display: flex; align-items: center; gap: 5px; min-height: 38px; padding: 0 25px 0 11px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: white; font-size: 11px; font-weight: 700; }
+.sort-select select { min-width: 93px; padding: 0; border: 0; outline: none; color: var(--ink); background: transparent; font-weight: 800; appearance: none; }
+.sort-select svg { position: absolute; right: 7px; width: 14px; height: 14px; pointer-events: none; }
+.sort-select:has(select:disabled) { opacity: .58; }
+.view-toggle { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 10px; background: white; }
+.view-button { display: grid; width: 30px; height: 30px; place-items: center; padding: 0; border: 0; border-radius: 7px; color: var(--muted); background: transparent; }
+.view-button svg { width: 16px; height: 16px; }
+.view-button.active { color: white; background: var(--teal-700); }
+.active-filter { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 17px; padding: 8px 11px; border: 1px solid var(--teal-200); border-radius: 999px; color: var(--teal-900); background: var(--teal-100); font-size: 12px; font-weight: 750; }
+.active-filter button { display: grid; width: 17px; height: 17px; place-items: center; padding: 0; border: 0; border-radius: 50%; color: var(--teal-800); background: rgba(255,255,255,.72); font-size: 15px; line-height: 1; }
+
+.video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+.video-grid.list-view { grid-template-columns: 1fr; }
+.video-card { position: relative; display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: 0 3px 0 rgba(4, 66, 63, 0.015); transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+.video-card:hover { border-color: var(--card-color, var(--teal-300)); box-shadow: var(--shadow-sm); transform: translateY(-4px); }
+.video-card.watched { opacity: .78; }
+.video-card.watched .poster-play { background: var(--teal-950); }
+.video-poster { position: relative; display: flex; aspect-ratio: 1.45 / 1; align-items: flex-end; justify-content: space-between; padding: 13px; overflow: hidden; color: white; background: linear-gradient(143deg, var(--card-color, var(--teal-800)) 0%, var(--card-deep, var(--teal-950)) 100%); }
+.video-poster::before { position: absolute; top: -56px; right: -33px; width: 180px; height: 180px; border: 1px solid rgba(255,255,255,.31); border-radius: 50%; content: ""; }
+.video-poster::after { position: absolute; right: 15px; bottom: -80px; width: 136px; height: 136px; border: 1px dashed rgba(255,255,255,.32); border-radius: 50%; content: ""; }
+.poster-top { position: absolute; z-index: 2; top: 12px; left: 13px; right: 13px; display: flex; align-items: center; justify-content: space-between; }
+.poster-rank { padding: 5px 7px; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; color: rgba(255,255,255,.88); background: rgba(0, 0, 0, .1); font-size: 10px; font-weight: 800; letter-spacing: .3px; }
+.save-button { display: grid; width: 30px; height: 30px; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.27); border-radius: 9px; color: white; background: rgba(0,0,0,.1); }
+.save-button:hover, .save-button.saved { color: var(--teal-950); border-color: var(--lime); background: var(--lime); }
+.save-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.save-button.saved svg { fill: currentColor; }
+.poster-topic { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 5px; max-width: calc(100% - 48px); color: rgba(255,255,255,.92); font-size: 10px; font-weight: 800; letter-spacing: .3px; }
+.poster-topic span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.poster-symbol { position: absolute; z-index: 1; right: 15px; bottom: 3px; color: rgba(255,255,255,.18); font-size: 79px; line-height: 1; }
+.poster-detail-button { position: absolute; z-index: 2; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; padding: 13px; border: 0; color: inherit; background: transparent; }
+.poster-detail-button:focus-visible { outline-color: rgba(255,255,255,.85); outline-offset: -5px; }
+.poster-play { position: relative; z-index: 3; display: grid; width: 39px; height: 39px; place-items: center; border: 1px solid rgba(255,255,255,.34); border-radius: 50%; color: var(--teal-900); background: white; transition: transform 180ms ease; }
+.video-card:hover .poster-play { transform: scale(1.1); }
+.poster-play svg { width: 19px; height: 19px; fill: currentColor; }
+.card-body { display: flex; min-height: 122px; flex: 1; flex-direction: column; padding: 14px 14px 13px; }
+.card-title { display: -webkit-box; padding: 0; border: 0; margin: 0; overflow: hidden; color: var(--teal-950); text-align: left; background: transparent; font-size: 14px; font-weight: 800; letter-spacing: -0.25px; line-height: 1.36; cursor: pointer; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.card-title:hover { color: var(--teal-700); }
+.card-meta { display: flex; align-items: center; gap: 5px; margin: 7px 0 auto; color: var(--muted); font-size: 11px; font-weight: 650; }
+.card-meta i { width: 3px; height: 3px; border-radius: 50%; background: var(--teal-500); }
+.card-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 13px; }
+.watch-check { position: relative; display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 10.5px; font-weight: 750; cursor: pointer; }
+.watch-check input { position: absolute; opacity: 0; }
+.watch-indicator { display: grid; width: 16px; height: 16px; place-items: center; border: 1.5px solid #bbd3d1; border-radius: 5px; color: white; background: white; transition: background 150ms ease, border 150ms ease; }
+.watch-indicator svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.watch-check input:checked + .watch-indicator { border-color: var(--teal-700); background: var(--teal-700); }
+.watch-check input:checked + .watch-indicator svg { opacity: 1; }
+.open-short { display: inline-flex; align-items: center; gap: 4px; color: var(--teal-800); font-size: 10.5px; font-weight: 800; }
+.open-short svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.open-short:hover { color: var(--teal-950); }
+
+.video-grid.list-view .video-card { display: grid; grid-template-columns: 165px minmax(0, 1fr); min-height: 136px; }
+.video-grid.list-view .video-poster { aspect-ratio: auto; min-height: 136px; }
+.video-grid.list-view .card-body { min-height: 136px; padding: 17px; }
+.video-grid.list-view .card-title { font-size: 15px; -webkit-line-clamp: 1; }
+
+.load-more { display: flex; width: 100%; align-items: center; justify-content: center; gap: 9px; margin-top: 25px; min-height: 45px; border: 1px dashed var(--teal-200); border-radius: 13px; color: var(--teal-800); background: rgba(255,255,255,.58); font-size: 13px; font-weight: 800; transition: border 150ms ease, background 150ms ease; }
+.load-more:hover { border-style: solid; border-color: var(--teal-600); background: var(--teal-100); }
+.load-more span { font-size: 16px; }
+.empty-state { padding: 65px 25px; border: 1px dashed var(--line-strong); border-radius: var(--radius-lg); text-align: center; background: var(--surface-tint); }
+.empty-icon { display: grid; width: 55px; height: 55px; margin: 0 auto 15px; place-items: center; border-radius: 18px; color: var(--teal-800); background: var(--teal-100); font-size: 34px; font-weight: 500; }
+.empty-state h3 { margin: 0; color: var(--teal-950); font-size: 20px; }
+.empty-state p { max-width: 340px; margin: 8px auto 18px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+.back-to-top { position: fixed; z-index: 20; right: 28px; bottom: 26px; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--teal-200); border-radius: 13px; color: white; background: var(--teal-800); box-shadow: var(--shadow-sm); opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 160ms ease, transform 160ms ease, background 160ms ease; }
+.back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top:hover { background: var(--teal-950); }
+.back-to-top svg { width: 19px; height: 19px; }
+
+.video-modal, .command-palette { width: min(540px, calc(100% - 32px)); padding: 0; overflow: hidden; border: 0; border-radius: 23px; color: var(--ink); background: white; box-shadow: 0 26px 80px rgba(2,42,39,.28); }
+.video-modal::backdrop, .command-palette::backdrop { background: rgba(3, 47, 44, .48); backdrop-filter: blur(4px); }
+.modal-close { position: absolute; z-index: 4; top: 14px; right: 14px; display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; color: white; background: rgba(0,0,0,.17); font-size: 23px; line-height: 1; }
+.modal-poster { display: grid; height: 205px; place-items: center; color: white; background: linear-gradient(140deg, var(--teal-700), var(--teal-950)); }
+.modal-poster span { color: rgba(255,255,255,.7); font-size: 92px; }
+.modal-content { padding: 27px; }
+.modal-topic { margin: 0 0 9px; color: var(--teal-800); font-size: 11px; font-weight: 850; letter-spacing: 1px; text-transform: uppercase; }
+.modal-content h2 { margin: 0; color: var(--teal-950); font-size: 26px; letter-spacing: -0.8px; line-height: 1.15; }
+.modal-meta { margin: 10px 0 23px; color: var(--muted); font-size: 13px; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.command-palette { top: 14vh; max-width: 600px; }
+.command-head { display: flex; align-items: center; gap: 10px; padding: 15px; border-bottom: 1px solid var(--line); color: var(--teal-700); }
+.command-head svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.command-head input { width: 100%; border: 0; outline: 0; color: var(--teal-950); background: transparent; font-size: 15px; font-weight: 650; }
+.command-head input::placeholder { color: #8ea9a6; }
+.command-results { max-height: min(400px, 52vh); padding: 8px; overflow-y: auto; }
+.command-result { display: flex; width: 100%; align-items: center; gap: 10px; padding: 11px; border: 0; border-radius: 12px; color: var(--ink); text-align: left; background: transparent; }
+.command-result:hover, .command-result.is-selected { background: var(--teal-100); }
+.command-result-icon { display: grid; width: 32px; height: 32px; flex: 0 0 32px; place-items: center; border-radius: 9px; color: var(--teal-800); background: white; }
+.command-result span { display: block; overflow: hidden; font-size: 13px; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.command-result small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 650; }
+.command-empty { padding: 25px; color: var(--muted); text-align: center; font-size: 13px; }
+.command-foot { display: flex; gap: 10px; margin: 0; padding: 10px 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 650; }
+.command-foot span { padding: 1px 4px; border: 1px solid var(--line); border-radius: 4px; color: var(--ink-soft); background: var(--surface-tint); }
+.toast { position: fixed; z-index: 80; left: 50%; bottom: 27px; max-width: calc(100% - 32px); padding: 11px 15px; border: 1px solid var(--teal-200); border-radius: 12px; color: white; background: var(--teal-950); box-shadow: var(--shadow-md); font-size: 13px; font-weight: 750; opacity: 0; pointer-events: none; transform: translate(-50%, 18px); transition: opacity 180ms ease, transform 180ms ease; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 1080px) {
+  .topic-grid { grid-template-columns: repeat(4, 1fr); }
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { grid-template-columns: minmax(0, 1.05fr) minmax(315px, .75fr); padding-inline: 43px; }
+  .card-two { right: 195px; }
+}
+
+@media (max-width: 820px) {
+  .site-header, main { width: min(100% - 32px, 720px); }
+  .site-header { height: 68px; }
+  .nav-link { display: none; }
+  .hero { display: block; min-height: 0; padding: 57px 31px 0; border-radius: 0 0 22px 22px; }
+  .hero::before { display: none; }
+  .hero-art { height: 302px; min-height: 0; margin-top: 12px; }
+  .orbit-one { top: 7px; right: calc(50% - 177px); }
+  .orbit-two { top: 56px; right: calc(50% - 116px); }
+  .card-one { top: 14px; right: calc(50% - 99px); }
+  .card-two { right: calc(50% + 22px); bottom: 17px; }
+  .topic-section { padding: 75px 0 57px; }
+  .topic-grid { grid-template-columns: repeat(3, 1fr); }
+  .library-section { grid-template-columns: 1fr; gap: 24px; padding-top: 33px; }
+  .filter-panel { position: static; }
+  .sidebar-search { display: none; }
+  .filter-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+  .filter-panel-head { grid-column: 1 / -1; }
+  .filter-toggles { padding-top: 8px; }
+  .topic-filter-group { padding-top: 8px; }
+  .learning-progress, .reset-button { display: none; }
+}
+
+@media (max-width: 560px) {
+  .site-header, main { width: min(100% - 24px, 520px); }
+  .brand { font-size: 18px; }
+  .key-hint { display: none; }
+  .hero { padding: 43px 20px 0; }
+  .hero h1 { font-size: 43px; letter-spacing: -1.65px; }
+  .hero-description { margin-top: 17px; font-size: 15px; }
+  .hero-stats { margin-top: 31px; }
+  .hero-stats div { min-width: 0; padding: 0 15px; }
+  .hero-stats strong { font-size: 19px; }
+  .hero-stats span { font-size: 10.5px; }
+  .hero-art { height: 274px; }
+  .card-one { width: 175px; height: 219px; padding: 19px; }
+  .card-one strong { margin-top: 47px; font-size: 23px; }
+  .card-two { width: 162px; right: calc(50% + 1px); padding: 11px; font-size: 11px; }
+  .play-pulse { width: 32px; height: 32px; flex-basis: 32px; }
+  .topic-section { padding: 60px 0 44px; }
+  .section-heading { align-items: start; }
+  .section-heading h2, .library-heading h2 { font-size: 30px; letter-spacing: -1.25px; }
+  .section-heading .text-button { display: none; }
+  .topic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+  .topic-card { min-height: 140px; padding: 14px; }
+  .topic-card h3 { margin-top: 19px; font-size: 13px; }
+  .topic-card p { font-size: 10px; }
+  .topic-icon { width: 37px; height: 37px; font-size: 18px; }
+  .library-section { padding-bottom: 70px; }
+  .filter-panel { display: block; padding: 13px; }
+  .filter-panel-head { padding-bottom: 10px; }
+  .sidebar-search { display: flex; }
+  .filter-toggles, .topic-filter-group { padding-top: 15px; }
+  .learning-progress, .reset-button { display: flex; }
+  .learning-progress { display: block; }
+  .library-heading { display: block; min-height: 0; margin-bottom: 18px; }
+  .library-tools { justify-content: space-between; margin-top: 17px; }
+  .sort-select { flex: 1; }
+  .sort-select select { width: 100%; }
+  .video-grid { grid-template-columns: 1fr; gap: 12px; }
+  .video-grid.list-view .video-card { grid-template-columns: 128px minmax(0, 1fr); min-height: 120px; }
+  .video-grid.list-view .video-poster { min-height: 120px; }
+  .video-grid.list-view .card-body { min-height: 120px; padding: 13px; }
+  .video-grid.list-view .poster-topic { display: none; }
+  .back-to-top { right: 14px; bottom: 16px; }
+  .modal-content { padding: 22px; }
+  .modal-content h2 { font-size: 23px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+}
+
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#short-library">Skip to Shorts library</a>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="LearnDriven Topic Hub home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5.5C9 4.672 9.672 4 10.5 4H24a3 3 0 0 1 3 3v20.5c0 .828-.672 1.5-1.5 1.5H12a3 3 0 0 1-3-3V5.5Z" fill="currentColor" opacity=".18"/>
+            <path d="M11 8.5h13M11 13h13M11 17.5h8" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
+            <path d="m20.5 21.2 6.6 3.8-6.6 3.8v-7.6Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span>Learn<span>Driven</span></span>
+      </a>
+
+      <nav class="header-actions" aria-label="Primary actions">
+        <a class="nav-link" href="#topics">Topics</a>
+        <a class="nav-link" href="#short-library">Library</a>
+        <button class="icon-button command-trigger" id="commandTrigger" type="button" aria-label="Open quick search" title="Quick search (Ctrl or Cmd + K)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.25 4.25"></path></svg>
+          <span class="key-hint">⌘ K</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> LearnDriven Shorts library</p>
+          <h1 id="hero-title">Make curiosity a <em>learning habit.</em></h1>
+          <p class="hero-description">
+            Explore every LearnDriven Short by topic, save discoveries, and keep a record of what you have already learned.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#topics">
+              Explore topics
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+            </a>
+            <button class="button button-secondary" id="surpriseButton" type="button">
+              <span aria-hidden="true">✦</span> Surprise me
+            </button>
+          </div>
+          <div class="hero-stats" aria-label="Shorts library statistics">
+            <div><strong id="totalShorts">313</strong><span>Shorts</span></div>
+            <div><strong id="topicCount">10</strong><span>Topics</span></div>
+            <div><strong id="totalViews">674M+</strong><span>Visible views</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-card card-one">
+            <span class="mini-label">TOPIC</span>
+            <strong>Space &amp;<br />Science</strong>
+            <span class="mini-icon">✦</span>
+          </div>
+          <div class="hero-card card-two">
+            <span class="play-pulse"><svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6V6Z"></path></svg></span>
+            <span>Learn one thing<br />today</span>
+          </div>
+          <div class="hero-dots"></div>
+        </div>
+      </section>
+
+      <section class="topic-section" id="topics" aria-labelledby="topics-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Browse with intent</p>
+            <h2 id="topics-title">Pick a topic. Follow the thread.</h2>
+          </div>
+          <button class="text-button" id="showAllTopics" type="button">View all Shorts <span>→</span></button>
+        </div>
+        <div class="topic-grid" id="topicGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="library-section" id="short-library" aria-labelledby="library-title">
+        <aside class="filter-panel" aria-label="Shorts filters">
+          <div class="filter-panel-head">
+            <div class="filter-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
+            </div>
+            <div>
+              <p>Shorts library</p>
+              <strong>Find your next idea</strong>
+            </div>
+          </div>
+
+          <div class="search-field sidebar-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.25 4.25"></path></svg>
+            <input id="searchInput" type="search" placeholder="Search a topic or title" autocomplete="off" />
+            <kbd>/</kbd>
+          </div>
+
+          <div class="filter-group filter-toggles">
+            <p class="filter-label">Show</p>
+            <label class="check-row latest-row" for="latestFirst">
+              <input id="latestFirst" type="checkbox" checked />
+              <span class="custom-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8.2 3.05 3L13 4.8"></path></svg></span>
+              <span><strong>Latest first</strong><small>Start with newest Shorts</small></span>
+            </label>
+            <label class="check-row" for="savedOnly">
+              <input id="savedOnly" type="checkbox" />
+              <span class="custom-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8.2 3.05 3L13 4.8"></path></svg></span>
+              <span><strong>Saved only</strong><small>Your learning queue</small></span>
+            </label>
+            <label class="check-row" for="unwatchedOnly">
+              <input id="unwatchedOnly" type="checkbox" />
+              <span class="custom-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8.2 3.05 3L13 4.8"></path></svg></span>
+              <span><strong>Unwatched</strong><small>Keep your momentum</small></span>
+            </label>
+          </div>
+
+          <div class="filter-group topic-filter-group">
+            <div class="filter-label-row">
+              <p class="filter-label">Topic</p>
+              <button id="clearTopic" type="button">Clear</button>
+            </div>
+            <div class="topic-filters" id="topicFilters"></div>
+          </div>
+
+          <div class="learning-progress">
+            <div class="progress-head"><span>Your progress</span><strong id="progressText">0 / 313</strong></div>
+            <div class="progress-track"><span id="progressFill"></span></div>
+            <p id="progressCaption">Mark a Short watched to build your streak.</p>
+          </div>
+
+          <button class="reset-button" id="resetFilters" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9A8 8 0 1 1 4 13M4.5 9V4.5M4.5 9H9"></path></svg>
+            Reset filters
+          </button>
+        </aside>
+
+        <div class="library-content">
+          <div class="library-heading">
+            <div>
+              <p class="eyebrow"><span></span> Curated for your brain</p>
+              <h2 id="library-title">Explore the Shorts</h2>
+              <p class="results-copy" id="resultSummary" aria-live="polite">Loading the library…</p>
+            </div>
+            <div class="library-tools">
+              <label class="sort-select" for="sortSelect">
+                <span>Sort</span>
+                <select id="sortSelect">
+                  <option value="popular">Most viewed</option>
+                  <option value="title">A–Z</option>
+                  <option value="topic">Topic</option>
+                </select>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg>
+              </label>
+              <div class="view-toggle" role="group" aria-label="Change card layout">
+                <button class="view-button active" id="gridView" type="button" data-view="grid" aria-label="Grid view" title="Grid view">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+                </button>
+                <button class="view-button" id="listView" type="button" data-view="list" aria-label="List view" title="List view">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10"></path><circle cx="5" cy="6" r="1"></circle><circle cx="5" cy="12" r="1"></circle><circle cx="5" cy="18" r="1"></circle></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="active-filter" id="activeFilter" hidden></div>
+          <div class="video-grid" id="videoGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <div class="empty-icon">⌕</div>
+            <h3>No Shorts found</h3>
+            <p>Try a different topic, remove a filter, or search with fewer words.</p>
+            <button class="button button-primary" id="emptyReset" type="button">Reset filters</button>
+          </div>
+          <button class="load-more" id="loadMore" type="button">Load more Shorts <span>↓</span></button>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg>
+    </button>
+
+    <dialog class="video-modal" id="videoModal" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close details">×</button>
+      <div class="modal-poster" id="modalPoster"><span id="modalIcon">✦</span></div>
+      <div class="modal-content">
+        <p class="modal-topic" id="modalTopic">Topic</p>
+        <h2 id="modalTitle">Short title</h2>
+        <p class="modal-meta" id="modalMeta">0 views · LearnDriven Short</p>
+        <div class="modal-actions">
+          <a class="button button-primary" id="modalWatch" target="_blank" rel="noopener">
+            Watch on YouTube <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+          </a>
+          <button class="button button-secondary" id="modalSave" type="button">Save to queue</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="command-palette" id="commandPalette" aria-labelledby="commandTitle">
+      <div class="command-head">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.25 4.25"></path></svg>
+        <input id="commandSearch" type="search" placeholder="Jump to a Short or topic…" autocomplete="off" />
+        <kbd>Esc</kbd>
+      </div>
+      <div class="command-results" id="commandResults"></div>
+      <p class="command-foot"><span>↑↓</span> Navigate <span>↵</span> Open</p>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+/* Public LearnDriven Shorts catalog — collected 10 August 2026. */
+window.LEARN_DRIVEN_SHORTS = [
+  {
+    "id": "-8eq-ytI-CU",
+    "title": "Shifting the shifter 🏍️",
+    "views": "209K views",
+    "rank": 1,
+    "url": "https://www.youtube.com/shorts/-8eq-ytI-CU"
+  },
+  {
+    "id": "Q_HKdOARI_E",
+    "title": "Minute and second hand in a clock 🕰️",
+    "views": "203K views",
+    "rank": 2,
+    "url": "https://www.youtube.com/shorts/Q_HKdOARI_E"
+  },
+  {
+    "id": "PvykTyjFNr8",
+    "title": "Accept the risk 📉",
+    "views": "119K views",
+    "rank": 3,
+    "url": "https://www.youtube.com/shorts/PvykTyjFNr8"
+  },
+  {
+    "id": "yTGhXPREPmA",
+    "title": "'Don't know' helps to know 🕵🏻‍♂️",
+    "views": "222K views",
+    "rank": 4,
+    "url": "https://www.youtube.com/shorts/yTGhXPREPmA"
+  },
+  {
+    "id": "47ctea-kZTw",
+    "title": "Mind is the most reliable system 🪖",
+    "views": "471K views",
+    "rank": 5,
+    "url": "https://www.youtube.com/shorts/47ctea-kZTw"
+  },
+  {
+    "id": "E0H3I-dKSIE",
+    "title": "Stop and save the repair cost 🫷🏻",
+    "views": "253K views",
+    "rank": 6,
+    "url": "https://www.youtube.com/shorts/E0H3I-dKSIE"
+  },
+  {
+    "id": "jx3RgCPxiLU",
+    "title": "Give a chance to the uncertain 🧩",
+    "views": "138K views",
+    "rank": 7,
+    "url": "https://www.youtube.com/shorts/jx3RgCPxiLU"
+  },
+  {
+    "id": "6n21BEBT2ec",
+    "title": "Update your decisions 📰",
+    "views": "143K views",
+    "rank": 8,
+    "url": "https://www.youtube.com/shorts/6n21BEBT2ec"
+  },
+  {
+    "id": "App0DHH7IM8",
+    "title": "Dodge losing, you might win 🏁",
+    "views": "268K views",
+    "rank": 9,
+    "url": "https://www.youtube.com/shorts/App0DHH7IM8"
+  },
+  {
+    "id": "rWzQ5hv-Zhs",
+    "title": "Nuanced Thinking 🔲🔳",
+    "views": "381K views",
+    "rank": 10,
+    "url": "https://www.youtube.com/shorts/rWzQ5hv-Zhs"
+  },
+  {
+    "id": "nhwE6isJRMM",
+    "title": "Why iron gets rusted?",
+    "views": "266K views",
+    "rank": 11,
+    "url": "https://www.youtube.com/shorts/nhwE6isJRMM"
+  },
+  {
+    "id": "A66ZWPFvEdk",
+    "title": "Water isn't recharging! ⛲",
+    "views": "398K views",
+    "rank": 12,
+    "url": "https://www.youtube.com/shorts/A66ZWPFvEdk"
+  },
+  {
+    "id": "2XeaS7qwrEg",
+    "title": "Does Earth lose water?💧⬆️",
+    "views": "361K views",
+    "rank": 13,
+    "url": "https://www.youtube.com/shorts/2XeaS7qwrEg"
+  },
+  {
+    "id": "i5KW0vzFbK0",
+    "title": "Does Earth gain water?💧⬇️",
+    "views": "434K views",
+    "rank": 14,
+    "url": "https://www.youtube.com/shorts/i5KW0vzFbK0"
+  },
+  {
+    "id": "q0iy06cQ48w",
+    "title": "Don't get electrocuted ⚡",
+    "views": "1.3M views",
+    "rank": 15,
+    "url": "https://www.youtube.com/shorts/q0iy06cQ48w"
+  },
+  {
+    "id": "XqqYVVeDapI",
+    "title": "How they actually measure rains 🌧️",
+    "views": "857K views",
+    "rank": 16,
+    "url": "https://www.youtube.com/shorts/XqqYVVeDapI"
+  },
+  {
+    "id": "KQXRewYVbUY",
+    "title": "They are all around 🛰️",
+    "views": "133K views",
+    "rank": 17,
+    "url": "https://www.youtube.com/shorts/KQXRewYVbUY"
+  },
+  {
+    "id": "D3PE8Z05IGU",
+    "title": "How heat travels in space 🌌",
+    "views": "1.4M views",
+    "rank": 18,
+    "url": "https://www.youtube.com/shorts/D3PE8Z05IGU"
+  },
+  {
+    "id": "jpWdsBijLV4",
+    "title": "Can Antarctica host data centers? 🏔️",
+    "views": "322K views",
+    "rank": 19,
+    "url": "https://www.youtube.com/shorts/jpWdsBijLV4"
+  },
+  {
+    "id": "xBAiVWA_UN4",
+    "title": "Roots of AI in history 🤖",
+    "views": "120K views",
+    "rank": 20,
+    "url": "https://www.youtube.com/shorts/xBAiVWA_UN4"
+  },
+  {
+    "id": "j3GK9WP19tI",
+    "title": "Did he miss a point? ⚡",
+    "views": "1.6M views",
+    "rank": 21,
+    "url": "https://www.youtube.com/shorts/j3GK9WP19tI"
+  },
+  {
+    "id": "ujN8z_jXKLw",
+    "title": "Are we the worst civilization? 🫯",
+    "views": "647K views",
+    "rank": 22,
+    "url": "https://www.youtube.com/shorts/ujN8z_jXKLw"
+  },
+  {
+    "id": "2VQDrhcJxi4",
+    "title": "Types of Civilization 🌌",
+    "views": "601K views",
+    "rank": 23,
+    "url": "https://www.youtube.com/shorts/2VQDrhcJxi4"
+  },
+  {
+    "id": "qmlr3I9yidU",
+    "title": "How we will catch electricity from space 🌎⚡",
+    "views": "548K views",
+    "rank": 24,
+    "url": "https://www.youtube.com/shorts/qmlr3I9yidU"
+  },
+  {
+    "id": "qOCbTrnXwF4",
+    "title": "Is Dyson Sphere in our scope? 💫",
+    "views": "720K views",
+    "rank": 25,
+    "url": "https://www.youtube.com/shorts/qOCbTrnXwF4"
+  },
+  {
+    "id": "bmlqxiGxQ_g",
+    "title": "Space solar panels are different 🛰️",
+    "views": "400K views",
+    "rank": 26,
+    "url": "https://www.youtube.com/shorts/bmlqxiGxQ_g"
+  },
+  {
+    "id": "F8_FxIhY7X8",
+    "title": "Things do get hot in space 🔥",
+    "views": "1M views",
+    "rank": 27,
+    "url": "https://www.youtube.com/shorts/F8_FxIhY7X8"
+  },
+  {
+    "id": "iUzPzmbHHPU",
+    "title": "Just light is enough ☀️",
+    "views": "955K views",
+    "rank": 28,
+    "url": "https://www.youtube.com/shorts/iUzPzmbHHPU"
+  },
+  {
+    "id": "wGmWwKaALj4",
+    "title": "Change color - Change temperature 🌡️",
+    "views": "2.4M views",
+    "rank": 29,
+    "url": "https://www.youtube.com/shorts/wGmWwKaALj4"
+  },
+  {
+    "id": "T2h9G26DzOc",
+    "title": "Right temperature allows hydration ⛲",
+    "views": "805K views",
+    "rank": 30,
+    "url": "https://www.youtube.com/shorts/T2h9G26DzOc"
+  },
+  {
+    "id": "Rf3Pg_eu2gY",
+    "title": "Everything that glitters isn't gold ⚱️",
+    "views": "2M views",
+    "rank": 31,
+    "url": "https://www.youtube.com/shorts/Rf3Pg_eu2gY"
+  },
+  {
+    "id": "7LLht5ggGBY",
+    "title": "Hot or not? 🐈",
+    "views": "1M views",
+    "rank": 32,
+    "url": "https://www.youtube.com/shorts/7LLht5ggGBY"
+  },
+  {
+    "id": "hgkKlZbNaiM",
+    "title": "Water + Curd = Chhass ❌🥛",
+    "views": "940K views",
+    "rank": 33,
+    "url": "https://www.youtube.com/shorts/hgkKlZbNaiM"
+  },
+  {
+    "id": "BpYeTQsddGc",
+    "title": "Sweating like a pro 🌊",
+    "views": "271K views",
+    "rank": 34,
+    "url": "https://www.youtube.com/shorts/BpYeTQsddGc"
+  },
+  {
+    "id": "Iv7Du3EDO-I",
+    "title": "Not every radiation is harmful ☢️",
+    "views": "353K views",
+    "rank": 35,
+    "url": "https://www.youtube.com/shorts/Iv7Du3EDO-I"
+  },
+  {
+    "id": "a0R8rX5Qdq8",
+    "title": "Melting chocolate with Radar 📡",
+    "views": "957K views",
+    "rank": 36,
+    "url": "https://www.youtube.com/shorts/a0R8rX5Qdq8"
+  },
+  {
+    "id": "5lOvE7kZ63E",
+    "title": "Temperature works beyond your comfort 🚿",
+    "views": "1.5M views",
+    "rank": 37,
+    "url": "https://www.youtube.com/shorts/5lOvE7kZ63E"
+  },
+  {
+    "id": "8yXv9_gtJ28",
+    "title": "Fizzy drink was natural? 🥂",
+    "views": "1.9M views",
+    "rank": 38,
+    "url": "https://www.youtube.com/shorts/8yXv9_gtJ28"
+  },
+  {
+    "id": "GwtEB9MT_S4",
+    "title": "Natural mango is a seasonal gift 🥭",
+    "views": "3.2M views",
+    "rank": 39,
+    "url": "https://www.youtube.com/shorts/GwtEB9MT_S4"
+  },
+  {
+    "id": "baZU6yIAP1A",
+    "title": "Sugarcane juice is not for everyone 🍹",
+    "views": "2.7M views",
+    "rank": 40,
+    "url": "https://www.youtube.com/shorts/baZU6yIAP1A"
+  },
+  {
+    "id": "LQa5sNR042s",
+    "title": "Drink the right Nimbu Paani 🍋",
+    "views": "1.9M views",
+    "rank": 41,
+    "url": "https://www.youtube.com/shorts/LQa5sNR042s"
+  },
+  {
+    "id": "bdgkwGGO1MA",
+    "title": "Save your fridge from summer 🍧☀️",
+    "views": "2M views",
+    "rank": 42,
+    "url": "https://www.youtube.com/shorts/bdgkwGGO1MA"
+  },
+  {
+    "id": "0wAbHhHIvAE",
+    "title": "Body's natural cooler 💦",
+    "views": "1.3M views",
+    "rank": 43,
+    "url": "https://www.youtube.com/shorts/0wAbHhHIvAE"
+  },
+  {
+    "id": "lXjblJOhDF4",
+    "title": "Choose the right fan 🪭",
+    "views": "1M views",
+    "rank": 44,
+    "url": "https://www.youtube.com/shorts/lXjblJOhDF4"
+  },
+  {
+    "id": "UqVIvpjoI-4",
+    "title": "Cooler demands right conditions🌬️",
+    "views": "5.6M views",
+    "rank": 45,
+    "url": "https://www.youtube.com/shorts/UqVIvpjoI-4"
+  },
+  {
+    "id": "k2XHBC8BbKw",
+    "title": "Efficient way to use AC 🥶",
+    "views": "11M views",
+    "rank": 46,
+    "url": "https://www.youtube.com/shorts/k2XHBC8BbKw"
+  },
+  {
+    "id": "to4wEZ3QMi0",
+    "title": "Hooked High in the Sky 🔭",
+    "views": "225K views",
+    "rank": 47,
+    "url": "https://www.youtube.com/shorts/to4wEZ3QMi0"
+  },
+  {
+    "id": "9_9s_eAZR90",
+    "title": "Invested in Atoms ☢️",
+    "views": "2.1M views",
+    "rank": 48,
+    "url": "https://www.youtube.com/shorts/9_9s_eAZR90"
+  },
+  {
+    "id": "vh4HndZYpOc",
+    "title": "1 Grenade - 2 modes | MMHG",
+    "views": "1.5M views",
+    "rank": 49,
+    "url": "https://www.youtube.com/shorts/vh4HndZYpOc"
+  },
+  {
+    "id": "rMLXVgsoPJw",
+    "title": "This is too powerful! 💣",
+    "views": "933K views",
+    "rank": 50,
+    "url": "https://www.youtube.com/shorts/rMLXVgsoPJw"
+  },
+  {
+    "id": "8OvR2N17GwM",
+    "title": "No gravity, No flush 🚽",
+    "views": "399K views",
+    "rank": 51,
+    "url": "https://www.youtube.com/shorts/8OvR2N17GwM"
+  },
+  {
+    "id": "NIKCcEmWpkw",
+    "title": "Luck is not always kind 🪨",
+    "views": "2.7M views",
+    "rank": 52,
+    "url": "https://www.youtube.com/shorts/NIKCcEmWpkw"
+  },
+  {
+    "id": "cRRimcH3OOA",
+    "title": "You can't overpower physics 🚀",
+    "views": "479K views",
+    "rank": 53,
+    "url": "https://www.youtube.com/shorts/cRRimcH3OOA"
+  },
+  {
+    "id": "UavKCDE3ric",
+    "title": "Recognize space rocks with its name",
+    "views": "547K views",
+    "rank": 54,
+    "url": "https://www.youtube.com/shorts/UavKCDE3ric"
+  },
+  {
+    "id": "roX3JO-q-Hc",
+    "title": "Smartness is in accepting our stupidity 🌎",
+    "views": "945K views",
+    "rank": 55,
+    "url": "https://www.youtube.com/shorts/roX3JO-q-Hc"
+  },
+  {
+    "id": "mVsNq2oL03Q",
+    "title": "Too much to ignore 🛸",
+    "views": "2.9M views",
+    "rank": 56,
+    "url": "https://www.youtube.com/shorts/mVsNq2oL03Q"
+  },
+  {
+    "id": "SyFrq8I_aok",
+    "title": "We are asking for it 🛸",
+    "views": "1.2M views",
+    "rank": 57,
+    "url": "https://www.youtube.com/shorts/SyFrq8I_aok"
+  },
+  {
+    "id": "vJEWTtgqIjE",
+    "title": "Decoding the Voyager Golden Record 📀",
+    "views": "739K views",
+    "rank": 58,
+    "url": "https://www.youtube.com/shorts/vJEWTtgqIjE"
+  },
+  {
+    "id": "XjGWhXyPguQ",
+    "title": "Ferrari reduced hospital errors 🏎️",
+    "views": "448K views",
+    "rank": 59,
+    "url": "https://www.youtube.com/shorts/XjGWhXyPguQ"
+  },
+  {
+    "id": "s0ensYR6wJA",
+    "title": "Obsessed with Stability ♾️",
+    "views": "687K views",
+    "rank": 60,
+    "url": "https://www.youtube.com/shorts/s0ensYR6wJA"
+  },
+  {
+    "id": "aaRnUcAit2g",
+    "title": "Brilliance without emotions 🗡️",
+    "views": "1.3M views",
+    "rank": 61,
+    "url": "https://www.youtube.com/shorts/aaRnUcAit2g"
+  },
+  {
+    "id": "vqBrFPoxIHU",
+    "title": "The limits of intelligence 💡",
+    "views": "768K views",
+    "rank": 62,
+    "url": "https://www.youtube.com/shorts/vqBrFPoxIHU"
+  },
+  {
+    "id": "xEmiTtZIlpk",
+    "title": "Mr. Tata couldn't compromise on love ❤️‍🩹",
+    "views": "372K views",
+    "rank": 63,
+    "url": "https://www.youtube.com/shorts/xEmiTtZIlpk"
+  },
+  {
+    "id": "iZcXeYDSV9I",
+    "title": "Purchasable Emotions: The Valentine's Week",
+    "views": "229K views",
+    "rank": 64,
+    "url": "https://www.youtube.com/shorts/iZcXeYDSV9I"
+  },
+  {
+    "id": "Ci8Z8oab1zo",
+    "title": "Desire is not an order 💭",
+    "views": "673K views",
+    "rank": 65,
+    "url": "https://www.youtube.com/shorts/Ci8Z8oab1zo"
+  },
+  {
+    "id": "MkbJEimeLvY",
+    "title": "Heer Ranjha was a social message 🥀",
+    "views": "418K views",
+    "rank": 66,
+    "url": "https://www.youtube.com/shorts/MkbJEimeLvY"
+  },
+  {
+    "id": "CTUXjBIWMhw",
+    "title": "They caused real deaths 🥀",
+    "views": "588K views",
+    "rank": 67,
+    "url": "https://www.youtube.com/shorts/CTUXjBIWMhw"
+  },
+  {
+    "id": "DlUfFGjZRS8",
+    "title": "Evolution of Honeymoon 👒",
+    "views": "598K views",
+    "rank": 68,
+    "url": "https://www.youtube.com/shorts/DlUfFGjZRS8"
+  },
+  {
+    "id": "1hgpHqCoCts",
+    "title": "Why Haldi as a ritual?",
+    "views": "339K views",
+    "rank": 69,
+    "url": "https://www.youtube.com/shorts/1hgpHqCoCts"
+  },
+  {
+    "id": "qmjOknZCKeY",
+    "title": "Why is Sperm Whale called that?",
+    "views": "542K views",
+    "rank": 70,
+    "url": "https://www.youtube.com/shorts/qmjOknZCKeY"
+  },
+  {
+    "id": "inUNX0b2BFg",
+    "title": "How much to trust Average 🧮",
+    "views": "842K views",
+    "rank": 71,
+    "url": "https://www.youtube.com/shorts/inUNX0b2BFg"
+  },
+  {
+    "id": "QlBTZqb5U_Q",
+    "title": "Math topic that solves dynamic problems 📷",
+    "views": "487K views",
+    "rank": 72,
+    "url": "https://www.youtube.com/shorts/QlBTZqb5U_Q"
+  },
+  {
+    "id": "oBjkS1VCS1A",
+    "title": "Your study needs application ➕",
+    "views": "870K views",
+    "rank": 73,
+    "url": "https://www.youtube.com/shorts/oBjkS1VCS1A"
+  },
+  {
+    "id": "vTuwjwITTCs",
+    "title": "How 300 lives demanded a smell ⚠️❗",
+    "views": "600K views",
+    "rank": 74,
+    "url": "https://www.youtube.com/shorts/vTuwjwITTCs"
+  },
+  {
+    "id": "Zc7PXGggB04",
+    "title": "Why did planes break mid air?",
+    "views": "1M views",
+    "rank": 75,
+    "url": "https://www.youtube.com/shorts/Zc7PXGggB04"
+  },
+  {
+    "id": "3YUIZM5vkwo",
+    "title": "Disaster that made a door rule 🚪🔥",
+    "views": "1.3M views",
+    "rank": 76,
+    "url": "https://www.youtube.com/shorts/3YUIZM5vkwo"
+  },
+  {
+    "id": "_UeHYvHfHE4",
+    "title": "Too Confident = Risk ✈️",
+    "views": "988K views",
+    "rank": 77,
+    "url": "https://www.youtube.com/shorts/_UeHYvHfHE4"
+  },
+  {
+    "id": "4XHrblfsfNs",
+    "title": "Rough man, Tough actions 🕴🏻",
+    "views": "871K views",
+    "rank": 78,
+    "url": "https://www.youtube.com/shorts/4XHrblfsfNs"
+  },
+  {
+    "id": "1Fkz6G2XoNo",
+    "title": "How this man became powerful 💢",
+    "views": "2.1M views",
+    "rank": 79,
+    "url": "https://www.youtube.com/shorts/1Fkz6G2XoNo"
+  },
+  {
+    "id": "j23pFWsJ7A0",
+    "title": "Was this his nature, or did he turn rebel? 👿",
+    "views": "813K views",
+    "rank": 80,
+    "url": "https://www.youtube.com/shorts/j23pFWsJ7A0"
+  },
+  {
+    "id": "hyF_ckX3Gi0",
+    "title": "How he became what he is 🕴🏻",
+    "views": "2.7M views",
+    "rank": 81,
+    "url": "https://www.youtube.com/shorts/hyF_ckX3Gi0"
+  },
+  {
+    "id": "f4H2_1m2vxM",
+    "title": "This Anti-God invention saved natural fires 🔥",
+    "views": "551K views",
+    "rank": 82,
+    "url": "https://www.youtube.com/shorts/f4H2_1m2vxM"
+  },
+  {
+    "id": "WHQ12S-3E4w",
+    "title": "Why was PDF invented 📃",
+    "views": "416K views",
+    "rank": 83,
+    "url": "https://www.youtube.com/shorts/WHQ12S-3E4w"
+  },
+  {
+    "id": "dmqyogI_Bao",
+    "title": "Take better decisions by knowing this concept💲",
+    "views": "459K views",
+    "rank": 84,
+    "url": "https://www.youtube.com/shorts/dmqyogI_Bao"
+  },
+  {
+    "id": "Wc7IsdMYsDM",
+    "title": "Easily Understand your Computer 🖥️",
+    "views": "854K views",
+    "rank": 85,
+    "url": "https://www.youtube.com/shorts/Wc7IsdMYsDM"
+  },
+  {
+    "id": "MfILC17DmJ4",
+    "title": "Invention & Evolution of Mouse 🖱️",
+    "views": "981K views",
+    "rank": 86,
+    "url": "https://www.youtube.com/shorts/MfILC17DmJ4"
+  },
+  {
+    "id": "KU-QGWFtt40",
+    "title": "Invention of Motherboard 🤱🏻",
+    "views": "1.1M views",
+    "rank": 87,
+    "url": "https://www.youtube.com/shorts/KU-QGWFtt40"
+  },
+  {
+    "id": "Q05ef69jrlU",
+    "title": "What came first? 👨🏻‍💻",
+    "views": "696K views",
+    "rank": 88,
+    "url": "https://www.youtube.com/shorts/Q05ef69jrlU"
+  },
+  {
+    "id": "PH8Bv7yza7Q",
+    "title": "Types of Explosives 💥",
+    "views": "584K views",
+    "rank": 89,
+    "url": "https://www.youtube.com/shorts/PH8Bv7yza7Q"
+  },
+  {
+    "id": "ul3UzhDWeL8",
+    "title": "Codes used in Radio Communication 🗣️",
+    "views": "5.3M views",
+    "rank": 90,
+    "url": "https://www.youtube.com/shorts/ul3UzhDWeL8"
+  },
+  {
+    "id": "IQajoWoC2ik",
+    "title": "Are you smart, intelligent or wise? 📊",
+    "views": "2.3M views",
+    "rank": 91,
+    "url": "https://www.youtube.com/shorts/IQajoWoC2ik"
+  },
+  {
+    "id": "kEACSJZvuHE",
+    "title": "How AQI detectors work 😷🏭",
+    "views": "539K views",
+    "rank": 92,
+    "url": "https://www.youtube.com/shorts/kEACSJZvuHE"
+  },
+  {
+    "id": "vFgHusAiI30",
+    "title": "Evolving invention of Fiber Optics 🧵",
+    "views": "2.5M views",
+    "rank": 93,
+    "url": "https://www.youtube.com/shorts/vFgHusAiI30"
+  },
+  {
+    "id": "RSHnm7-4DSM",
+    "title": "Why Ethernet is complex but relevant 🌐",
+    "views": "4.4M views",
+    "rank": 94,
+    "url": "https://www.youtube.com/shorts/RSHnm7-4DSM"
+  },
+  {
+    "id": "A4duRhcICeo",
+    "title": "Origin of this Symbol ⚕️",
+    "views": "2.6M views",
+    "rank": 95,
+    "url": "https://www.youtube.com/shorts/A4duRhcICeo"
+  },
+  {
+    "id": "hFe2Wkzi-eA",
+    "title": "13 year old girl inspired this 🫁",
+    "views": "691K views",
+    "rank": 96,
+    "url": "https://www.youtube.com/shorts/hFe2Wkzi-eA"
+  },
+  {
+    "id": "bPogRUW2lFE",
+    "title": "Why do we have a Weekend? ⛱️",
+    "views": "669K views",
+    "rank": 97,
+    "url": "https://www.youtube.com/shorts/bPogRUW2lFE"
+  },
+  {
+    "id": "Z6YhNcK5bvs",
+    "title": "Types of Sticky Tape 🗞️",
+    "views": "6M views",
+    "rank": 98,
+    "url": "https://www.youtube.com/shorts/Z6YhNcK5bvs"
+  },
+  {
+    "id": "pG_uIp2rvUk",
+    "title": "This brand pushed its limits 💨",
+    "views": "3.3M views",
+    "rank": 99,
+    "url": "https://www.youtube.com/shorts/pG_uIp2rvUk"
+  },
+  {
+    "id": "X3FztTJzyfA",
+    "title": "Railway track's gauge distance 🛤️",
+    "views": "1.4M views",
+    "rank": 100,
+    "url": "https://www.youtube.com/shorts/X3FztTJzyfA"
+  },
+  {
+    "id": "9uDkm-IoT2I",
+    "title": "History of Automotive Lights 💡",
+    "views": "2.8M views",
+    "rank": 101,
+    "url": "https://www.youtube.com/shorts/9uDkm-IoT2I"
+  },
+  {
+    "id": "lRsyLT9S6QQ",
+    "title": "Purpose of Airplane Lights ✈️",
+    "views": "1.4M views",
+    "rank": 102,
+    "url": "https://www.youtube.com/shorts/lRsyLT9S6QQ"
+  },
+  {
+    "id": "RlIloATic2o",
+    "title": "The Survival Rule of 3's 🛟",
+    "views": "761K views",
+    "rank": 103,
+    "url": "https://www.youtube.com/shorts/RlIloATic2o"
+  },
+  {
+    "id": "QU5VbdftrwU",
+    "title": "The infamous case of Joseph Fritzl 👴🏻 The Evil Father",
+    "views": "9.2M views",
+    "rank": 104,
+    "url": "https://www.youtube.com/shorts/QU5VbdftrwU"
+  },
+  {
+    "id": "Ijd_ToCm4U8",
+    "title": "Origin of the N word 🔤",
+    "views": "1.6M views",
+    "rank": 105,
+    "url": "https://www.youtube.com/shorts/Ijd_ToCm4U8"
+  },
+  {
+    "id": "Dg-Q3fFEB2Q",
+    "title": "How Celsius & Fahrenheit originated 🌡️",
+    "views": "1.6M views",
+    "rank": 106,
+    "url": "https://www.youtube.com/shorts/Dg-Q3fFEB2Q"
+  },
+  {
+    "id": "CjMXDBbeqQk",
+    "title": "How Historical Dates Work 🗓️",
+    "views": "1.7M views",
+    "rank": 107,
+    "url": "https://www.youtube.com/shorts/CjMXDBbeqQk"
+  },
+  {
+    "id": "8stPFT-tP_M",
+    "title": "Origins of Kanche/Marbles 🔮",
+    "views": "866K views",
+    "rank": 108,
+    "url": "https://www.youtube.com/shorts/8stPFT-tP_M"
+  },
+  {
+    "id": "2SaYy3P1xYA",
+    "title": "Poona to Badminton 🏸",
+    "views": "6.2M views",
+    "rank": 109,
+    "url": "https://www.youtube.com/shorts/2SaYy3P1xYA"
+  },
+  {
+    "id": "aXrcpsV577I",
+    "title": "How Basketball Game was invented 🏀",
+    "views": "989K views",
+    "rank": 110,
+    "url": "https://www.youtube.com/shorts/aXrcpsV577I"
+  },
+  {
+    "id": "a81nq3VucSE",
+    "title": "Use Pepper Spray Correctly 🌶️",
+    "views": "1M views",
+    "rank": 111,
+    "url": "https://www.youtube.com/shorts/a81nq3VucSE"
+  },
+  {
+    "id": "UG0sGXHA5cc",
+    "title": "Shampoo came from India 🧴",
+    "views": "540K views",
+    "rank": 112,
+    "url": "https://www.youtube.com/shorts/UG0sGXHA5cc"
+  },
+  {
+    "id": "QmPYUls7x9s",
+    "title": "How penalty cards started 🧧📒",
+    "views": "288K views",
+    "rank": 113,
+    "url": "https://www.youtube.com/shorts/QmPYUls7x9s"
+  },
+  {
+    "id": "9HiMr_q78hM",
+    "title": "How Marathon Started 🏃🏻‍♂️",
+    "views": "1M views",
+    "rank": 114,
+    "url": "https://www.youtube.com/shorts/9HiMr_q78hM"
+  },
+  {
+    "id": "6L9UWqPE3xs",
+    "title": "Is Reincarnation Real? ☁️",
+    "views": "866K views",
+    "rank": 115,
+    "url": "https://www.youtube.com/shorts/6L9UWqPE3xs"
+  },
+  {
+    "id": "DTaImq1yRic",
+    "title": "Girls shouldn't cycle? 🚲",
+    "views": "4.2M views",
+    "rank": 116,
+    "url": "https://www.youtube.com/shorts/DTaImq1yRic"
+  },
+  {
+    "id": "Hlqj32cBi38",
+    "title": "One last photo 🖼️",
+    "views": "702K views",
+    "rank": 117,
+    "url": "https://www.youtube.com/shorts/Hlqj32cBi38"
+  },
+  {
+    "id": "VTMOT4IKPtY",
+    "title": "India gave Zero & MORE 🅾️",
+    "views": "1.3M views",
+    "rank": 118,
+    "url": "https://www.youtube.com/shorts/VTMOT4IKPtY"
+  },
+  {
+    "id": "iH7ZbBR2sTw",
+    "title": "Why Humans can still drink milk 🥛",
+    "views": "2.4M views",
+    "rank": 119,
+    "url": "https://www.youtube.com/shorts/iH7ZbBR2sTw"
+  },
+  {
+    "id": "d0x7gigZjh8",
+    "title": "Royal Guards 💂🏻‍♂️ - The behind story",
+    "views": "1.7M views",
+    "rank": 120,
+    "url": "https://www.youtube.com/shorts/d0x7gigZjh8"
+  },
+  {
+    "id": "OXRoLUHTYvk",
+    "title": "Signals didn't start on Road 🚦",
+    "views": "652K views",
+    "rank": 121,
+    "url": "https://www.youtube.com/shorts/OXRoLUHTYvk"
+  },
+  {
+    "id": "QwVjeKI1rA4",
+    "title": "How Sound makes Silence 🎧",
+    "views": "2.2M views",
+    "rank": 122,
+    "url": "https://www.youtube.com/shorts/QwVjeKI1rA4"
+  },
+  {
+    "id": "tCIdaNMP-Yg",
+    "title": "How Dolby Atmos started 🔊",
+    "views": "1.3M views",
+    "rank": 123,
+    "url": "https://www.youtube.com/shorts/tCIdaNMP-Yg"
+  },
+  {
+    "id": "qW7EXYkJLsc",
+    "title": "How was 1 meter defined 📏",
+    "views": "2M views",
+    "rank": 124,
+    "url": "https://www.youtube.com/shorts/qW7EXYkJLsc"
+  },
+  {
+    "id": "1ztfnUhMHrI",
+    "title": "Journey of Discovering The Blackhole 🕳️",
+    "views": "1.8M views",
+    "rank": 125,
+    "url": "https://www.youtube.com/shorts/1ztfnUhMHrI"
+  },
+  {
+    "id": "4XZQe5dzUGk",
+    "title": "How a Diamond Gets Value 💎",
+    "views": "857K views",
+    "rank": 126,
+    "url": "https://www.youtube.com/shorts/4XZQe5dzUGk"
+  },
+  {
+    "id": "J24BPSMS8QM",
+    "title": "Confusing Origins of Your Favourite Street Food 😋",
+    "views": "2.4M views",
+    "rank": 127,
+    "url": "https://www.youtube.com/shorts/J24BPSMS8QM"
+  },
+  {
+    "id": "ekLbNb7c-Bk",
+    "title": "Can you guess this brand?",
+    "views": "720K views",
+    "rank": 128,
+    "url": "https://www.youtube.com/shorts/ekLbNb7c-Bk"
+  },
+  {
+    "id": "7PehD76WRhg",
+    "title": "How spectacles were invented 👓",
+    "views": "1.4M views",
+    "rank": 129,
+    "url": "https://www.youtube.com/shorts/7PehD76WRhg"
+  },
+  {
+    "id": "zH1z6nrCRRo",
+    "title": "Let's cover this image too 🏠",
+    "views": "341K views",
+    "rank": 130,
+    "url": "https://www.youtube.com/shorts/zH1z6nrCRRo"
+  },
+  {
+    "id": "3wIU_ZNTud4",
+    "title": "Why eye test has this image?👁️🎈",
+    "views": "2.1M views",
+    "rank": 131,
+    "url": "https://www.youtube.com/shorts/3wIU_ZNTud4"
+  },
+  {
+    "id": "-eVIlw0QJcQ",
+    "title": "Why MRI sounds like this?💥",
+    "views": "15M views",
+    "rank": 132,
+    "url": "https://www.youtube.com/shorts/-eVIlw0QJcQ"
+  },
+  {
+    "id": "pOR4Rh0COes",
+    "title": "Checking Oxygen Level Wasn't Easy 🔴",
+    "views": "981K views",
+    "rank": 133,
+    "url": "https://www.youtube.com/shorts/pOR4Rh0COes"
+  },
+  {
+    "id": "CqzY7Yxre64",
+    "title": "Game that inspired QR Code 🤳🏻",
+    "views": "892K views",
+    "rank": 134,
+    "url": "https://www.youtube.com/shorts/CqzY7Yxre64"
+  },
+  {
+    "id": "CEwUGqkyT3o",
+    "title": "How a record player solved your shopping 📀",
+    "views": "1M views",
+    "rank": 135,
+    "url": "https://www.youtube.com/shorts/CEwUGqkyT3o"
+  },
+  {
+    "id": "5xfcug9ajpk",
+    "title": "Green Line of Death 🟢☠️",
+    "views": "2.1M views",
+    "rank": 136,
+    "url": "https://www.youtube.com/shorts/5xfcug9ajpk"
+  },
+  {
+    "id": "DDJGtrHo62A",
+    "title": "Is this your Favourite display? 🎰",
+    "views": "1.5M views",
+    "rank": 137,
+    "url": "https://www.youtube.com/shorts/DDJGtrHo62A"
+  },
+  {
+    "id": "dZMo77b5T9U",
+    "title": "\"Project Muscle\" - A finger touching invention 🤌🏻",
+    "views": "7.2M views",
+    "rank": 138,
+    "url": "https://www.youtube.com/shorts/dZMo77b5T9U"
+  },
+  {
+    "id": "vwZgrSPfTOg",
+    "title": "Thunderbolt ⚡ - The Ultimate Cable? 👑❓",
+    "views": "2.9M views",
+    "rank": 139,
+    "url": "https://www.youtube.com/shorts/vwZgrSPfTOg"
+  },
+  {
+    "id": "o_cXsPQQ1Lo",
+    "title": "HDMI had a secret mission 🤫🔐",
+    "views": "6.2M views",
+    "rank": 140,
+    "url": "https://www.youtube.com/shorts/o_cXsPQQ1Lo"
+  },
+  {
+    "id": "ypirMzoR7-E",
+    "title": "Headphone Jack was Never Made for Music 🎧❌",
+    "views": "2.7M views",
+    "rank": 141,
+    "url": "https://www.youtube.com/shorts/ypirMzoR7-E"
+  },
+  {
+    "id": "MCnHC9VTrzg",
+    "title": "USB-C - \"The Masihaa Plug\" 🗿👑",
+    "views": "3.2M views",
+    "rank": 142,
+    "url": "https://www.youtube.com/shorts/MCnHC9VTrzg"
+  },
+  {
+    "id": "iwMjpjGaKxQ",
+    "title": "Why USB was invented? 💻🔌",
+    "views": "1M views",
+    "rank": 143,
+    "url": "https://www.youtube.com/shorts/iwMjpjGaKxQ"
+  },
+  {
+    "id": "rcqtkHjfR2k",
+    "title": "Origin of Sunglasses 😎",
+    "views": "386K views",
+    "rank": 144,
+    "url": "https://www.youtube.com/shorts/rcqtkHjfR2k"
+  },
+  {
+    "id": "_VijrXnrEH0",
+    "title": "\"Mayday\" ✈️ is a well thought word 🛟",
+    "views": "277K views",
+    "rank": 145,
+    "url": "https://www.youtube.com/shorts/_VijrXnrEH0"
+  },
+  {
+    "id": "vBt3YHoeCaM",
+    "title": "Why only Queens wore Kohinoor? 💎",
+    "views": "2.7M views",
+    "rank": 146,
+    "url": "https://www.youtube.com/shorts/vBt3YHoeCaM"
+  },
+  {
+    "id": "GdlAkE0RSE4",
+    "title": "Makeup started for Survival 😷, Not Beauty 💋",
+    "views": "1.5M views",
+    "rank": 147,
+    "url": "https://www.youtube.com/shorts/GdlAkE0RSE4"
+  },
+  {
+    "id": "eSss6Tbzuhk",
+    "title": "How highlighter was invented 🌟",
+    "views": "558K views",
+    "rank": 148,
+    "url": "https://www.youtube.com/shorts/eSss6Tbzuhk"
+  },
+  {
+    "id": "p3aK1pn0r3E",
+    "title": "What does \"Rx\" really mean 🩺✍🏻",
+    "views": "344K views",
+    "rank": 149,
+    "url": "https://www.youtube.com/shorts/p3aK1pn0r3E"
+  },
+  {
+    "id": "L0dGGbjDWBA",
+    "title": "\"Touch Wood\" meant this 👉🏻🪵",
+    "views": "3.6M views",
+    "rank": 150,
+    "url": "https://www.youtube.com/shorts/L0dGGbjDWBA"
+  },
+  {
+    "id": "g-_S40dzfI0",
+    "title": "Own your reasons to do it 💍",
+    "views": "1.2M views",
+    "rank": 151,
+    "url": "https://www.youtube.com/shorts/g-_S40dzfI0"
+  },
+  {
+    "id": "ei7gX2UFHn4",
+    "title": "Red Carpet's Dark Origins 👠📸",
+    "views": "712K views",
+    "rank": 152,
+    "url": "https://www.youtube.com/shorts/ei7gX2UFHn4"
+  },
+  {
+    "id": "-ieAC6pSmeY",
+    "title": "Language of Whistles 🌬️",
+    "views": "1M views",
+    "rank": 153,
+    "url": "https://www.youtube.com/shorts/-ieAC6pSmeY"
+  },
+  {
+    "id": "pPIGhiwy_8g",
+    "title": "The 8-Hour Sleep Cycle - A Myth? 😴",
+    "views": "1.7M views",
+    "rank": 154,
+    "url": "https://www.youtube.com/shorts/pPIGhiwy_8g"
+  },
+  {
+    "id": "MBKYGy3qBMo",
+    "title": "Does medicine timing matter? 💊",
+    "views": "943K views",
+    "rank": 155,
+    "url": "https://www.youtube.com/shorts/MBKYGy3qBMo"
+  },
+  {
+    "id": "IHCFeFqfePI",
+    "title": "Meaning behind gestures 🍻",
+    "views": "1.4M views",
+    "rank": 156,
+    "url": "https://www.youtube.com/shorts/IHCFeFqfePI"
+  },
+  {
+    "id": "fwH7rUoKwMU",
+    "title": "IV - The Thread of Life 💧",
+    "views": "795K views",
+    "rank": 157,
+    "url": "https://www.youtube.com/shorts/fwH7rUoKwMU"
+  },
+  {
+    "id": "_pknQ4gMk4Q",
+    "title": "Don't buy Laughing Buddha for self 🎁",
+    "views": "4M views",
+    "rank": 158,
+    "url": "https://www.youtube.com/shorts/_pknQ4gMk4Q"
+  },
+  {
+    "id": "WXC5fqtNS38",
+    "title": "Invention of Emojis 😍😛🥳",
+    "views": "414K views",
+    "rank": 159,
+    "url": "https://www.youtube.com/shorts/WXC5fqtNS38"
+  },
+  {
+    "id": "InNtzNZ1bW4",
+    "title": "Tea Bag - An Accidental invention ☕",
+    "views": "371K views",
+    "rank": 160,
+    "url": "https://www.youtube.com/shorts/InNtzNZ1bW4"
+  },
+  {
+    "id": "QAVl_ntGqzE",
+    "title": "Testing Human's G-Force Limits 🚀",
+    "views": "1M views",
+    "rank": 161,
+    "url": "https://www.youtube.com/shorts/QAVl_ntGqzE"
+  },
+  {
+    "id": "7P_aaBA9pic",
+    "title": "Dark origin of Lawyer's uniform ⚖️",
+    "views": "1.7M views",
+    "rank": 162,
+    "url": "https://www.youtube.com/shorts/7P_aaBA9pic"
+  },
+  {
+    "id": "DwirVYcq7Kw",
+    "title": "Invention of PIN code 📬",
+    "views": "1M views",
+    "rank": 163,
+    "url": "https://www.youtube.com/shorts/DwirVYcq7Kw"
+  },
+  {
+    "id": "2NAF7RUOpmk",
+    "title": "Why Titanic faked the 4th funnel? 🚢",
+    "views": "1.2M views",
+    "rank": 164,
+    "url": "https://www.youtube.com/shorts/2NAF7RUOpmk"
+  },
+  {
+    "id": "o-HxisVo51o",
+    "title": "Why Formula 1 left India 🏎️",
+    "views": "3.2M views",
+    "rank": 165,
+    "url": "https://www.youtube.com/shorts/o-HxisVo51o"
+  },
+  {
+    "id": "5vzvVcqW1ww",
+    "title": "They destroyed the \"0\" Zero 🔥",
+    "views": "1M views",
+    "rank": 166,
+    "url": "https://www.youtube.com/shorts/5vzvVcqW1ww"
+  },
+  {
+    "id": "6QdctTdv3v8",
+    "title": "Wild Ride to Escalator 🛗",
+    "views": "4.3M views",
+    "rank": 167,
+    "url": "https://www.youtube.com/shorts/6QdctTdv3v8"
+  },
+  {
+    "id": "sWzauU59SLM",
+    "title": "A sniff of 20+ lakhs - Cardamom Auction",
+    "views": "8.9M views",
+    "rank": 168,
+    "url": "https://www.youtube.com/shorts/sWzauU59SLM"
+  },
+  {
+    "id": "u_1imBl6tX0",
+    "title": "One missing hyphen failed NASA's mission 🛰️",
+    "views": "726K views",
+    "rank": 169,
+    "url": "https://www.youtube.com/shorts/u_1imBl6tX0"
+  },
+  {
+    "id": "jblxj5kEhgI",
+    "title": "Caviar was a survival food 🐟",
+    "views": "7.1M views",
+    "rank": 170,
+    "url": "https://www.youtube.com/shorts/jblxj5kEhgI"
+  },
+  {
+    "id": "i7V3r73I2Aw",
+    "title": "Born to Run 🏃🏻‍♂️",
+    "views": "1M views",
+    "rank": 171,
+    "url": "https://www.youtube.com/shorts/i7V3r73I2Aw"
+  },
+  {
+    "id": "WwtjpEXUkXs",
+    "title": "Aspirin's invention was for his dad 💊",
+    "views": "1.2M views",
+    "rank": 172,
+    "url": "https://www.youtube.com/shorts/WwtjpEXUkXs"
+  },
+  {
+    "id": "x7GNdxR9844",
+    "title": "Ajinomoto's Origins ⛩️ (MSG)",
+    "views": "3.1M views",
+    "rank": 173,
+    "url": "https://www.youtube.com/shorts/x7GNdxR9844"
+  },
+  {
+    "id": "F-5-ZlVeCf4",
+    "title": "Why Manual to Automatic? 🚘",
+    "views": "5M views",
+    "rank": 174,
+    "url": "https://www.youtube.com/shorts/F-5-ZlVeCf4"
+  },
+  {
+    "id": "IcPpFcxIinM",
+    "title": "Evolution of TV remotes 📺",
+    "views": "3.9M views",
+    "rank": 175,
+    "url": "https://www.youtube.com/shorts/IcPpFcxIinM"
+  },
+  {
+    "id": "QbjLrjPlnIg",
+    "title": "He survived a PROTON beam ⚛️",
+    "views": "4.8M views",
+    "rank": 176,
+    "url": "https://www.youtube.com/shorts/QbjLrjPlnIg"
+  },
+  {
+    "id": "jE3VFYfd3aM",
+    "title": "Why is it called a Piggy Bank? 🐖💰",
+    "views": "727K views",
+    "rank": 177,
+    "url": "https://www.youtube.com/shorts/jE3VFYfd3aM"
+  },
+  {
+    "id": "oqwiU3ldKwM",
+    "title": "\"At the rate\" - @ Almost forgotten 📩",
+    "views": "1.6M views",
+    "rank": 178,
+    "url": "https://www.youtube.com/shorts/oqwiU3ldKwM"
+  },
+  {
+    "id": "YfwoOWwAdJc",
+    "title": "How safe is 99.999977% ? ✈️",
+    "views": "2M views",
+    "rank": 179,
+    "url": "https://www.youtube.com/shorts/YfwoOWwAdJc"
+  },
+  {
+    "id": "UxUT6LbTDIU",
+    "title": "Webcam was born for Coffee 📷☕",
+    "views": "391K views",
+    "rank": 180,
+    "url": "https://www.youtube.com/shorts/UxUT6LbTDIU"
+  },
+  {
+    "id": "sYxkBmnaimw",
+    "title": "WD-40, A missile spray? 🚀",
+    "views": "6M views",
+    "rank": 181,
+    "url": "https://www.youtube.com/shorts/sYxkBmnaimw"
+  },
+  {
+    "id": "fqvVNDRVSYw",
+    "title": "Blind Genius behind Cruise Control 🚗",
+    "views": "2.4M views",
+    "rank": 182,
+    "url": "https://www.youtube.com/shorts/fqvVNDRVSYw"
+  },
+  {
+    "id": "Jh9qAXNeom4",
+    "title": "Got betrayed on his own dating site 💔",
+    "views": "995K views",
+    "rank": 183,
+    "url": "https://www.youtube.com/shorts/Jh9qAXNeom4"
+  },
+  {
+    "id": "8IVokU0qgOQ",
+    "title": "Heels were invented for Men 👠",
+    "views": "5.9M views",
+    "rank": 184,
+    "url": "https://www.youtube.com/shorts/8IVokU0qgOQ"
+  },
+  {
+    "id": "j7mR318ouuI",
+    "title": "Lysol was a woman's intimate wash? 🧼",
+    "views": "333K views",
+    "rank": 185,
+    "url": "https://www.youtube.com/shorts/j7mR318ouuI"
+  },
+  {
+    "id": "S2Dsq0-QwNA",
+    "title": "That's why alcohol is not banned? 🍷",
+    "views": "8.1M views",
+    "rank": 186,
+    "url": "https://www.youtube.com/shorts/S2Dsq0-QwNA"
+  },
+  {
+    "id": "6HYkFlyG54Y",
+    "title": "Decency 👨🏻‍⚕️ = Stethoscope 🩺",
+    "views": "2.5M views",
+    "rank": 187,
+    "url": "https://www.youtube.com/shorts/6HYkFlyG54Y"
+  },
+  {
+    "id": "pKJU0V9yuaY",
+    "title": "Chainsaw for childbirth? 🪚🤰",
+    "views": "2.3M views",
+    "rank": 188,
+    "url": "https://www.youtube.com/shorts/pKJU0V9yuaY"
+  },
+  {
+    "id": "Z7_NO8O4l3w",
+    "title": "Wrong ❌ gross 🤢... but Brave! 🫡",
+    "views": "5.3M views",
+    "rank": 189,
+    "url": "https://www.youtube.com/shorts/Z7_NO8O4l3w"
+  },
+  {
+    "id": "A94_ZQ3imps",
+    "title": "Fanta started as a jugaad 🍹",
+    "views": "692K views",
+    "rank": 190,
+    "url": "https://www.youtube.com/shorts/A94_ZQ3imps"
+  },
+  {
+    "id": "wLDDAimppsY",
+    "title": "They didn't know but they told us!",
+    "views": "9.3M views",
+    "rank": 191,
+    "url": "https://www.youtube.com/shorts/wLDDAimppsY"
+  },
+  {
+    "id": "vHDBnk6mhmE",
+    "title": "\"Mr. Eat It All\"",
+    "views": "2.4M views",
+    "rank": 192,
+    "url": "https://www.youtube.com/shorts/vHDBnk6mhmE"
+  },
+  {
+    "id": "YQJkWUltjOo",
+    "title": "Jet gestures aren't just cool ✈️",
+    "views": "1.3M views",
+    "rank": 193,
+    "url": "https://www.youtube.com/shorts/YQJkWUltjOo"
+  },
+  {
+    "id": "jx3eZYSaKuk",
+    "title": "Truth of Geneva Convention ⚖️",
+    "views": "450K views",
+    "rank": 194,
+    "url": "https://www.youtube.com/shorts/jx3eZYSaKuk"
+  },
+  {
+    "id": "L4Hozb7sITU",
+    "title": "1 vs 300 - This soldier didn't back off! 🛡️",
+    "views": "5.1M views",
+    "rank": 195,
+    "url": "https://www.youtube.com/shorts/L4Hozb7sITU"
+  },
+  {
+    "id": "eHDfx17IxtM",
+    "title": "He didn't know the war ended 🤐 for 29 years!",
+    "views": "5.6M views",
+    "rank": 196,
+    "url": "https://www.youtube.com/shorts/eHDfx17IxtM"
+  },
+  {
+    "id": "eKmQMi7DMNo",
+    "title": "Power without declaring first strike ☢️",
+    "views": "1M views",
+    "rank": 197,
+    "url": "https://www.youtube.com/shorts/eKmQMi7DMNo"
+  },
+  {
+    "id": "tmlIlU-sqNw",
+    "title": "One switch saved America 💥",
+    "views": "1M views",
+    "rank": 198,
+    "url": "https://www.youtube.com/shorts/tmlIlU-sqNw"
+  },
+  {
+    "id": "1PbliFoawNk",
+    "title": "Pain before power - Taser training",
+    "views": "1.6M views",
+    "rank": 199,
+    "url": "https://www.youtube.com/shorts/1PbliFoawNk"
+  },
+  {
+    "id": "5oX5qO-Fy9g",
+    "title": "Pineapple was RENTED to flaunt? 🍍🤔",
+    "views": "1.2M views",
+    "rank": 200,
+    "url": "https://www.youtube.com/shorts/5oX5qO-Fy9g"
+  },
+  {
+    "id": "xAWxMbLmsEg",
+    "title": "A mandir beyond religion ✨",
+    "views": "2.2M views",
+    "rank": 201,
+    "url": "https://www.youtube.com/shorts/xAWxMbLmsEg"
+  },
+  {
+    "id": "diO1U45pHQE",
+    "title": "No single engine in Vande Bharat? 🚄",
+    "views": "1.7M views",
+    "rank": 202,
+    "url": "https://www.youtube.com/shorts/diO1U45pHQE"
+  },
+  {
+    "id": "C2EVi2z2ykk",
+    "title": "Why Indian defence stopped using GPS 🛰️",
+    "views": "1.4M views",
+    "rank": 203,
+    "url": "https://www.youtube.com/shorts/C2EVi2z2ykk"
+  },
+  {
+    "id": "UvMlCMYOqtY",
+    "title": "\"The good maharaja\" as the Polish say 👑",
+    "views": "6.7M views",
+    "rank": 204,
+    "url": "https://www.youtube.com/shorts/UvMlCMYOqtY"
+  },
+  {
+    "id": "e2qTK7wpyGw",
+    "title": "AK-47's Dark Regret 🥀",
+    "views": "8.5M views",
+    "rank": 205,
+    "url": "https://www.youtube.com/shorts/e2qTK7wpyGw"
+  },
+  {
+    "id": "u8_s9XTSLjU",
+    "title": "Which movie passes this test?",
+    "views": "257K views",
+    "rank": 206,
+    "url": "https://www.youtube.com/shorts/u8_s9XTSLjU"
+  },
+  {
+    "id": "OvetTRLWBNo",
+    "title": "A record breaking creation 📘",
+    "views": "301K views",
+    "rank": 207,
+    "url": "https://www.youtube.com/shorts/OvetTRLWBNo"
+  },
+  {
+    "id": "gIylOLo4UKg",
+    "title": "Pizza was for the poor? 🍕",
+    "views": "4.6M views",
+    "rank": 208,
+    "url": "https://www.youtube.com/shorts/gIylOLo4UKg"
+  },
+  {
+    "id": "VpYnJFSg42o",
+    "title": "How Pachisi became Ludo 🎲",
+    "views": "949K views",
+    "rank": 209,
+    "url": "https://www.youtube.com/shorts/VpYnJFSg42o"
+  },
+  {
+    "id": "JZ2kKZkW4ik",
+    "title": "Evolution of Chess♟️",
+    "views": "5.9M views",
+    "rank": 210,
+    "url": "https://www.youtube.com/shorts/JZ2kKZkW4ik"
+  },
+  {
+    "id": "EUkq8l3Deu4",
+    "title": "This village in India looks the same 👬",
+    "views": "260K views",
+    "rank": 211,
+    "url": "https://www.youtube.com/shorts/EUkq8l3Deu4"
+  },
+  {
+    "id": "w0rKgBU_37M",
+    "title": "Einstein's brain was mishandled 🧠",
+    "views": "3.1M views",
+    "rank": 212,
+    "url": "https://www.youtube.com/shorts/w0rKgBU_37M"
+  },
+  {
+    "id": "XoTmdvYMakc",
+    "title": "Relation of Tonn with AC 🧊",
+    "views": "1M views",
+    "rank": 213,
+    "url": "https://www.youtube.com/shorts/XoTmdvYMakc"
+  },
+  {
+    "id": "sVDAo-l_QU4",
+    "title": "Right choice can protect your eyes 👀",
+    "views": "158K views",
+    "rank": 214,
+    "url": "https://www.youtube.com/shorts/sVDAo-l_QU4"
+  },
+  {
+    "id": "Tt9eMSykIV4",
+    "title": "Why we switched to Green boards? 🟩",
+    "views": "8.2M views",
+    "rank": 215,
+    "url": "https://www.youtube.com/shorts/Tt9eMSykIV4"
+  },
+  {
+    "id": "GxglsgsjYzM",
+    "title": "95% Human 🧬 100% Hero 🐁",
+    "views": "612K views",
+    "rank": 216,
+    "url": "https://www.youtube.com/shorts/GxglsgsjYzM"
+  },
+  {
+    "id": "5JFWDitQI0M",
+    "title": "The Science of Hope 🕯️",
+    "views": "3.9M views",
+    "rank": 217,
+    "url": "https://www.youtube.com/shorts/5JFWDitQI0M"
+  },
+  {
+    "id": "Ur_IPwY_hgg",
+    "title": "\"Masi Ink\" of Ancient India ✒️",
+    "views": "856K views",
+    "rank": 218,
+    "url": "https://www.youtube.com/shorts/Ur_IPwY_hgg"
+  },
+  {
+    "id": "I-p4z5uB_gs",
+    "title": "Credit cards were used differently! 💳",
+    "views": "432K views",
+    "rank": 219,
+    "url": "https://www.youtube.com/shorts/I-p4z5uB_gs"
+  },
+  {
+    "id": "DlLjfZYJF9U",
+    "title": "Jharokha - Not just a window 🪟",
+    "views": "2.1M views",
+    "rank": 220,
+    "url": "https://www.youtube.com/shorts/DlLjfZYJF9U"
+  },
+  {
+    "id": "JkZrq99e__8",
+    "title": "When Artists won olympic medals! 🎨🥇",
+    "views": "536K views",
+    "rank": 221,
+    "url": "https://www.youtube.com/shorts/JkZrq99e__8"
+  },
+  {
+    "id": "LbZDoPiINy8",
+    "title": "They HATED the Eiffel Tower 🗼",
+    "views": "11M views",
+    "rank": 222,
+    "url": "https://www.youtube.com/shorts/LbZDoPiINy8"
+  },
+  {
+    "id": "waNkOvXqj1k",
+    "title": "A city built for Silence 🤫",
+    "views": "2.4M views",
+    "rank": 223,
+    "url": "https://www.youtube.com/shorts/waNkOvXqj1k"
+  },
+  {
+    "id": "YhK000mkt_k",
+    "title": "What is outside your window? 🪟🤔",
+    "views": "359K views",
+    "rank": 224,
+    "url": "https://www.youtube.com/shorts/YhK000mkt_k"
+  },
+  {
+    "id": "OcOb9suvpws",
+    "title": "Boring Cinema Hall Exit 🥱🍿 WHY?",
+    "views": "20M views",
+    "rank": 225,
+    "url": "https://www.youtube.com/shorts/OcOb9suvpws"
+  },
+  {
+    "id": "SMY2S35MO7k",
+    "title": "Don't let the information hack you 👾",
+    "views": "656K views",
+    "rank": 226,
+    "url": "https://www.youtube.com/shorts/SMY2S35MO7k"
+  },
+  {
+    "id": "REDZWRr4OEA",
+    "title": "Apne aap se mat daro 😨❌",
+    "views": "1.6M views",
+    "rank": 227,
+    "url": "https://www.youtube.com/shorts/REDZWRr4OEA"
+  },
+  {
+    "id": "g-PSSaPPA14",
+    "title": "Glitch in the evolution? 🤔",
+    "views": "25M views",
+    "rank": 228,
+    "url": "https://www.youtube.com/shorts/g-PSSaPPA14"
+  },
+  {
+    "id": "NCeelHSsoBk",
+    "title": "Tata, bye-bye, chali gayii 😥👋🏻",
+    "views": "6.4M views",
+    "rank": 229,
+    "url": "https://www.youtube.com/shorts/NCeelHSsoBk"
+  },
+  {
+    "id": "DJNJ0Vqwa4s",
+    "title": "This would be a fun game now! 🎲",
+    "views": "1.3M views",
+    "rank": 230,
+    "url": "https://www.youtube.com/shorts/DJNJ0Vqwa4s"
+  },
+  {
+    "id": "wFT5JCQuiO8",
+    "title": "PowerPuff girls ka sach 🍭",
+    "views": "240K views",
+    "rank": 231,
+    "url": "https://www.youtube.com/shorts/wFT5JCQuiO8"
+  },
+  {
+    "id": "mj-F13aDbnA",
+    "title": "Thinking a lot while texting? 💬",
+    "views": "77K views",
+    "rank": 232,
+    "url": "https://www.youtube.com/shorts/mj-F13aDbnA"
+  },
+  {
+    "id": "3T2PaPA5_Sg",
+    "title": "Luck is not enough 🎰",
+    "views": "69K views",
+    "rank": 233,
+    "url": "https://www.youtube.com/shorts/3T2PaPA5_Sg"
+  },
+  {
+    "id": "uOr9HUABze0",
+    "title": "What silver does to your body 👤",
+    "views": "113K views",
+    "rank": 234,
+    "url": "https://www.youtube.com/shorts/uOr9HUABze0"
+  },
+  {
+    "id": "1pAh5sRm-tw",
+    "title": "No mask 😷 = No life ☠️",
+    "views": "426K views",
+    "rank": 235,
+    "url": "https://www.youtube.com/shorts/1pAh5sRm-tw"
+  },
+  {
+    "id": "2-j0MMrCoMM",
+    "title": "Most kissed face (sadly) ❤️",
+    "views": "14M views",
+    "rank": 236,
+    "url": "https://www.youtube.com/shorts/2-j0MMrCoMM"
+  },
+  {
+    "id": "8BWj9qJ1pR0",
+    "title": "Project Acoustic Kitty 🐈",
+    "views": "3.6M views",
+    "rank": 237,
+    "url": "https://www.youtube.com/shorts/8BWj9qJ1pR0"
+  },
+  {
+    "id": "alCOZfiHh7M",
+    "title": "Story of Courage of Cowardly Dog 🐶",
+    "views": "898K views",
+    "rank": 238,
+    "url": "https://www.youtube.com/shorts/alCOZfiHh7M"
+  },
+  {
+    "id": "5R5bKhEUoMc",
+    "title": "The Ghost Army 👻🪖",
+    "views": "280K views",
+    "rank": 239,
+    "url": "https://www.youtube.com/shorts/5R5bKhEUoMc"
+  },
+  {
+    "id": "rLV77l3_Fsc",
+    "title": "Thought of going inside an Anaconda? 🐍",
+    "views": "10M views",
+    "rank": 240,
+    "url": "https://www.youtube.com/shorts/rLV77l3_Fsc"
+  },
+  {
+    "id": "rDZo2ffJJaI",
+    "title": "The girl who fell from the sky 😰",
+    "views": "1.2M views",
+    "rank": 241,
+    "url": "https://www.youtube.com/shorts/rDZo2ffJJaI"
+  },
+  {
+    "id": "pQD1-mur56A",
+    "title": "What is fried rice syndrome? 🍚",
+    "views": "1.5M views",
+    "rank": 242,
+    "url": "https://www.youtube.com/shorts/pQD1-mur56A"
+  },
+  {
+    "id": "879cE_1jjVc",
+    "title": "4,500 years for a perfect smile 😁🦷",
+    "views": "7.9M views",
+    "rank": 243,
+    "url": "https://www.youtube.com/shorts/879cE_1jjVc"
+  },
+  {
+    "id": "95IeI8hqh_c",
+    "title": "Koalas may disappear 🐨🌳",
+    "views": "1M views",
+    "rank": 244,
+    "url": "https://www.youtube.com/shorts/95IeI8hqh_c"
+  },
+  {
+    "id": "ptoVdJT0f8M",
+    "title": "Don't enjoy Phenyl's smell too much 🧹",
+    "views": "206K views",
+    "rank": 245,
+    "url": "https://www.youtube.com/shorts/ptoVdJT0f8M"
+  },
+  {
+    "id": "0nwcngAh99A",
+    "title": "We all are connected with Yawning 🥱",
+    "views": "74K views",
+    "rank": 246,
+    "url": "https://www.youtube.com/shorts/0nwcngAh99A"
+  },
+  {
+    "id": "aPX2oXVCDww",
+    "title": "Supercritical water 🔥💧💨",
+    "views": "1.1M views",
+    "rank": 247,
+    "url": "https://www.youtube.com/shorts/aPX2oXVCDww"
+  },
+  {
+    "id": "J60hpFh2cGo",
+    "title": "Need a law for Loopholes ⚖️",
+    "views": "3.5M views",
+    "rank": 248,
+    "url": "https://www.youtube.com/shorts/J60hpFh2cGo"
+  },
+  {
+    "id": "GsQzgrK12Ds",
+    "title": "You are smarter 🧠 when calm 😌",
+    "views": "2.3M views",
+    "rank": 249,
+    "url": "https://www.youtube.com/shorts/GsQzgrK12Ds"
+  },
+  {
+    "id": "5dVaftth_aY",
+    "title": "This doctor was crazy good 🦠",
+    "views": "2.5M views",
+    "rank": 250,
+    "url": "https://www.youtube.com/shorts/5dVaftth_aY"
+  },
+  {
+    "id": "ryjEj274Nv8",
+    "title": "There's KitKat in KitKat 🍫",
+    "views": "907K views",
+    "rank": 251,
+    "url": "https://www.youtube.com/shorts/ryjEj274Nv8"
+  },
+  {
+    "id": "dCR1AC1Mk-M",
+    "title": "Maggi was a government backed project 🪖",
+    "views": "1.3M views",
+    "rank": 252,
+    "url": "https://www.youtube.com/shorts/dCR1AC1Mk-M"
+  },
+  {
+    "id": "Pglrzo9VKVo",
+    "title": "Music & sound brands timeline 🎙️🎧",
+    "views": "28K views",
+    "rank": 253,
+    "url": "https://www.youtube.com/shorts/Pglrzo9VKVo"
+  },
+  {
+    "id": "0Ws5VdRtFUc",
+    "title": "Change your alarm tune now! ⏰",
+    "views": "2M views",
+    "rank": 254,
+    "url": "https://www.youtube.com/shorts/0Ws5VdRtFUc"
+  },
+  {
+    "id": "HK8Z37Dd_AM",
+    "title": "Why is the Dollar called a Dollar?",
+    "views": "37K views",
+    "rank": 255,
+    "url": "https://www.youtube.com/shorts/HK8Z37Dd_AM"
+  },
+  {
+    "id": "6zFW5Ii4myk",
+    "title": "Indians rocked Britishers shocked 😂",
+    "views": "46K views",
+    "rank": 256,
+    "url": "https://www.youtube.com/shorts/6zFW5Ii4myk"
+  },
+  {
+    "id": "cst2UT5H9LI",
+    "title": "This is how fish breathe 🐟",
+    "views": "233K views",
+    "rank": 257,
+    "url": "https://www.youtube.com/shorts/cst2UT5H9LI"
+  },
+  {
+    "id": "NtTjNtGuroM",
+    "title": "Why can't the trains be longer?",
+    "views": "2.3M views",
+    "rank": 258,
+    "url": "https://www.youtube.com/shorts/NtTjNtGuroM"
+  },
+  {
+    "id": "R40SeGAsYlw",
+    "title": "Self awareness comes with responsibility 🙏🏻",
+    "views": "34K views",
+    "rank": 259,
+    "url": "https://www.youtube.com/shorts/R40SeGAsYlw"
+  },
+  {
+    "id": "IAn22ardwtk",
+    "title": "How Jeep was born",
+    "views": "17K views",
+    "rank": 260,
+    "url": "https://www.youtube.com/shorts/IAn22ardwtk"
+  },
+  {
+    "id": "UeCsrNTKwsQ",
+    "title": "That's how Hindenburg earned!",
+    "views": "27K views",
+    "rank": 261,
+    "url": "https://www.youtube.com/shorts/UeCsrNTKwsQ"
+  },
+  {
+    "id": "bXjP6qyO4ew",
+    "title": "This is India's Law ⚖️",
+    "views": "28K views",
+    "rank": 262,
+    "url": "https://www.youtube.com/shorts/bXjP6qyO4ew"
+  },
+  {
+    "id": "qLAOeDPszzI",
+    "title": "Know the difference!",
+    "views": "27K views",
+    "rank": 263,
+    "url": "https://www.youtube.com/shorts/qLAOeDPszzI"
+  },
+  {
+    "id": "_vBGA3NOkho",
+    "title": "Birth of Mercedes-Benz ✨",
+    "views": "28K views",
+    "rank": 264,
+    "url": "https://www.youtube.com/shorts/_vBGA3NOkho"
+  },
+  {
+    "id": "rKKVDfb-5YU",
+    "title": "Are you asking for discounts? 💊",
+    "views": "18K views",
+    "rank": 265,
+    "url": "https://www.youtube.com/shorts/rKKVDfb-5YU"
+  },
+  {
+    "id": "k5IRb076XkI",
+    "title": "Algorithm of validation 🤌🏻",
+    "views": "19K views",
+    "rank": 266,
+    "url": "https://www.youtube.com/shorts/k5IRb076XkI"
+  },
+  {
+    "id": "yKCeC6s-7PQ",
+    "title": "Story of Credit Card",
+    "views": "179K views",
+    "rank": 267,
+    "url": "https://www.youtube.com/shorts/yKCeC6s-7PQ"
+  },
+  {
+    "id": "Q5L47do6ZEo",
+    "title": "The Aaloo of Biscuits 🥔 - Biscoff",
+    "views": "3.1M views",
+    "rank": 268,
+    "url": "https://www.youtube.com/shorts/Q5L47do6ZEo"
+  },
+  {
+    "id": "pdDHrO0FQDQ",
+    "title": "Ferrari was rude to Lamborghini 🏎️",
+    "views": "1.1M views",
+    "rank": 269,
+    "url": "https://www.youtube.com/shorts/pdDHrO0FQDQ"
+  },
+  {
+    "id": "omZFM743Dko",
+    "title": "Tom & Jerry was made in Desperation 🙈",
+    "views": "590K views",
+    "rank": 270,
+    "url": "https://www.youtube.com/shorts/omZFM743Dko"
+  },
+  {
+    "id": "bnCpLKSjmfU",
+    "title": "They don't expand for a reason 🌯",
+    "views": "11M views",
+    "rank": 271,
+    "url": "https://www.youtube.com/shorts/bnCpLKSjmfU"
+  },
+  {
+    "id": "kfQ6KPVgWjQ",
+    "title": "Jeans - From function to fashion 👖",
+    "views": "30K views",
+    "rank": 272,
+    "url": "https://www.youtube.com/shorts/kfQ6KPVgWjQ"
+  },
+  {
+    "id": "EH5SFHWhMUU",
+    "title": "Mirrors reduced complains🪞",
+    "views": "824K views",
+    "rank": 273,
+    "url": "https://www.youtube.com/shorts/EH5SFHWhMUU"
+  },
+  {
+    "id": "OENfvW2zMbY",
+    "title": "Spotify didn't need to stop this! 🎵",
+    "views": "52K views",
+    "rank": 274,
+    "url": "https://www.youtube.com/shorts/OENfvW2zMbY"
+  },
+  {
+    "id": "VbTBwIU8xzQ",
+    "title": "Autotune wasn't made for Music 🤔",
+    "views": "183K views",
+    "rank": 275,
+    "url": "https://www.youtube.com/shorts/VbTBwIU8xzQ"
+  },
+  {
+    "id": "WDXY3ZpPbUo",
+    "title": "Lucid Dreams can come true ✨",
+    "views": "98K views",
+    "rank": 276,
+    "url": "https://www.youtube.com/shorts/WDXY3ZpPbUo"
+  },
+  {
+    "id": "iqybgsPI1Os",
+    "title": "Respect Turkish ice-cream vendors! 🍦",
+    "views": "788K views",
+    "rank": 277,
+    "url": "https://www.youtube.com/shorts/iqybgsPI1Os"
+  },
+  {
+    "id": "TU1dzp0eWLU",
+    "title": "Don't think in the night! 😴",
+    "views": "362K views",
+    "rank": 278,
+    "url": "https://www.youtube.com/shorts/TU1dzp0eWLU"
+  },
+  {
+    "id": "GtaVfg6enXk",
+    "title": "Important if you're buying shoes! 👟",
+    "views": "741K views",
+    "rank": 279,
+    "url": "https://www.youtube.com/shorts/GtaVfg6enXk"
+  },
+  {
+    "id": "kudYzo8HKNk",
+    "title": "Most underestimated animal 🐴",
+    "views": "2.6M views",
+    "rank": 280,
+    "url": "https://www.youtube.com/shorts/kudYzo8HKNk"
+  },
+  {
+    "id": "Y-BZRE4qXds",
+    "title": "Carton network is not dead, its lost!",
+    "views": "2.6M views",
+    "rank": 281,
+    "url": "https://www.youtube.com/shorts/Y-BZRE4qXds"
+  },
+  {
+    "id": "15Y3WvmmXko",
+    "title": "Time will feel lesser and lesser ⏳",
+    "views": "26K views",
+    "rank": 282,
+    "url": "https://www.youtube.com/shorts/15Y3WvmmXko"
+  },
+  {
+    "id": "wTUs8Lr-LJE",
+    "title": "Journey of Santa Claus 🎅🏻🌲",
+    "views": "41K views",
+    "rank": 283,
+    "url": "https://www.youtube.com/shorts/wTUs8Lr-LJE"
+  },
+  {
+    "id": "ZgjmALTpIhk",
+    "title": "Will you find your love? 💔♥️",
+    "views": "38K views",
+    "rank": 284,
+    "url": "https://www.youtube.com/shorts/ZgjmALTpIhk"
+  },
+  {
+    "id": "AE1nol5UScQ",
+    "title": "Why Cinema Hall Seats are RED 🍿🔴",
+    "views": "73K views",
+    "rank": 285,
+    "url": "https://www.youtube.com/shorts/AE1nol5UScQ"
+  },
+  {
+    "id": "Hu6bcxIahl0",
+    "title": "How Vaseline was invented",
+    "views": "3.1M views",
+    "rank": 286,
+    "url": "https://www.youtube.com/shorts/Hu6bcxIahl0"
+  },
+  {
+    "id": "mhKytt2gZ5s",
+    "title": "Can you relate to this? Nova Effect ✨",
+    "views": "52K views",
+    "rank": 287,
+    "url": "https://www.youtube.com/shorts/mhKytt2gZ5s"
+  },
+  {
+    "id": "wFMLUo_hvAg",
+    "title": "Crazy solution to disasters 🤯",
+    "views": "229K views",
+    "rank": 288,
+    "url": "https://www.youtube.com/shorts/wFMLUo_hvAg"
+  },
+  {
+    "id": "vgn12DTI1SI",
+    "title": "How long can you stay with the problem?",
+    "views": "16K views",
+    "rank": 289,
+    "url": "https://www.youtube.com/shorts/vgn12DTI1SI"
+  },
+  {
+    "id": "MQbwtz_b5DA",
+    "title": "How is this possible??? 😮",
+    "views": "139K views",
+    "rank": 290,
+    "url": "https://www.youtube.com/shorts/MQbwtz_b5DA"
+  },
+  {
+    "id": "ZoF1hUdxjQg",
+    "title": "Best from waste 💪🏻 Whey Protein",
+    "views": "240K views",
+    "rank": 291,
+    "url": "https://www.youtube.com/shorts/ZoF1hUdxjQg"
+  },
+  {
+    "id": "-Ss3D9amyx4",
+    "title": "Bubble wrap was a wallpaper!?",
+    "views": "2M views",
+    "rank": 292,
+    "url": "https://www.youtube.com/shorts/-Ss3D9amyx4"
+  },
+  {
+    "id": "Ibnl5Fd0RB4",
+    "title": "Signal lost but Aura gained!",
+    "views": "1M views",
+    "rank": 293,
+    "url": "https://www.youtube.com/shorts/Ibnl5Fd0RB4"
+  },
+  {
+    "id": "yFT3RXwwDGI",
+    "title": "STOP SPYING 🚫 Spy Cams in India | Privacy violation needs to stop! How to detect hidden camera",
+    "views": "9.2M views",
+    "rank": 294,
+    "url": "https://www.youtube.com/shorts/yFT3RXwwDGI"
+  },
+  {
+    "id": "OrMVA65VviQ",
+    "title": "Picasso could draw better!",
+    "views": "11M views",
+    "rank": 295,
+    "url": "https://www.youtube.com/shorts/OrMVA65VviQ"
+  },
+  {
+    "id": "dh8wK1gxk54",
+    "title": "The blue car in Mr. Bean had a past.",
+    "views": "302K views",
+    "rank": 296,
+    "url": "https://www.youtube.com/shorts/dh8wK1gxk54"
+  },
+  {
+    "id": "X_1ZJZwyd60",
+    "title": "These lights cast no shadow!",
+    "views": "4.5M views",
+    "rank": 297,
+    "url": "https://www.youtube.com/shorts/X_1ZJZwyd60"
+  },
+  {
+    "id": "m33yzYEz5Ts",
+    "title": "What's different in these cameras?",
+    "views": "372K views",
+    "rank": 298,
+    "url": "https://www.youtube.com/shorts/m33yzYEz5Ts"
+  },
+  {
+    "id": "QWanL_-gEa0",
+    "title": "How doctors went from black to white coats!",
+    "views": "8.5M views",
+    "rank": 299,
+    "url": "https://www.youtube.com/shorts/QWanL_-gEa0"
+  },
+  {
+    "id": "MQ4xAoqtTRM",
+    "title": "Reality behind No Shave November!",
+    "views": "27K views",
+    "rank": 300,
+    "url": "https://www.youtube.com/shorts/MQ4xAoqtTRM"
+  },
+  {
+    "id": "W_s3zChgIlI",
+    "title": "Formation of Time Zones",
+    "views": "957K views",
+    "rank": 301,
+    "url": "https://www.youtube.com/shorts/W_s3zChgIlI"
+  },
+  {
+    "id": "HMSS-atB_Gg",
+    "title": "The unexpected discovery of gunpowder & firecrackers 🧨",
+    "views": "104K views",
+    "rank": 302,
+    "url": "https://www.youtube.com/shorts/HMSS-atB_Gg"
+  },
+  {
+    "id": "C9hPvflm8Dk",
+    "title": "Man Behind Bigg Boss 👁️",
+    "views": "610K views",
+    "rank": 303,
+    "url": "https://www.youtube.com/shorts/C9hPvflm8Dk"
+  },
+  {
+    "id": "TPUfnuRcQPE",
+    "title": "Mr. Ratan Tata deserve paradise!",
+    "views": "12K views",
+    "rank": 304,
+    "url": "https://www.youtube.com/shorts/TPUfnuRcQPE"
+  },
+  {
+    "id": "SsLR_dz0Jcg",
+    "title": "How Jeep was born!",
+    "views": "544K views",
+    "rank": 305,
+    "url": "https://www.youtube.com/shorts/SsLR_dz0Jcg"
+  },
+  {
+    "id": "zMPHZTsj3iA",
+    "title": "How was Braille invented 👨🏻‍🦯",
+    "views": "18M views",
+    "rank": 306,
+    "url": "https://www.youtube.com/shorts/zMPHZTsj3iA"
+  },
+  {
+    "id": "Wngz8sIuy_k",
+    "title": "The smell inside the submarine 🤢",
+    "views": "3.6M views",
+    "rank": 307,
+    "url": "https://www.youtube.com/shorts/Wngz8sIuy_k"
+  },
+  {
+    "id": "t8fAMS0vTgo",
+    "title": "How is this fair? Indian laws need to change!",
+    "views": "22K views",
+    "rank": 308,
+    "url": "https://www.youtube.com/shorts/t8fAMS0vTgo"
+  },
+  {
+    "id": "7lshg4Azag0",
+    "title": "3 crore people starved because of sparrows?",
+    "views": "27K views",
+    "rank": 309,
+    "url": "https://www.youtube.com/shorts/7lshg4Azag0"
+  },
+  {
+    "id": "YlEFt1ndYkM",
+    "title": "Looks like water, but!",
+    "views": "873K views",
+    "rank": 310,
+    "url": "https://www.youtube.com/shorts/YlEFt1ndYkM"
+  },
+  {
+    "id": "pR6Zs_waPh0",
+    "title": "Insecurity or Marketing strategy?",
+    "views": "616K views",
+    "rank": 311,
+    "url": "https://www.youtube.com/shorts/pR6Zs_waPh0"
+  },
+  {
+    "id": "mCZOH5Pc_Hk",
+    "title": "Danger on the road!",
+    "views": "24M views",
+    "rank": 312,
+    "url": "https://www.youtube.com/shorts/mCZOH5Pc_Hk"
+  },
+  {
+    "id": "g_efz58Kat0",
+    "title": "Gilbert Hill vs The other 2 natural monuments.",
+    "views": "14M views",
+    "rank": 313,
+    "url": "https://www.youtube.com/shorts/g_efz58Kat0"
+  }
+];
+
+    </script>
+    <script>
+(() => {
+  "use strict";
+
+  const source = Array.isArray(window.LEARN_DRIVEN_SHORTS)
+    ? window.LEARN_DRIVEN_SHORTS
+    : [];
+
+  const TOPICS = [
+    {
+      name: "Science & Space",
+      icon: "✦",
+      color: "#0a948c",
+      deep: "#075c57",
+      soft: "#dff6f2",
+      description: "Physics, space & big questions",
+      terms: [
+        "space", "earth", "dyson", "solar", "gravity", "atoms", "atom", "meteor", "voyager",
+        "civilization", "antarctica", "temperature", "heat", "radiation", "physics", "electricity",
+        "celsius", "fahrenheit", "blackhole", "black hole", "proton", "radar", "diamond",
+        "water isn't", "earth lose", "earth gain", "rain", "rusted", "supercritical", "sperm whale"
+      ]
+    },
+    {
+      name: "Tech & Design",
+      icon: "⌘",
+      color: "#5278d6",
+      deep: "#344b98",
+      soft: "#e8edff",
+      description: "Computing, systems & invention",
+      terms: [
+        "ai", "pdf", "computer", "mouse", "motherboard", "fiber optic", "ethernet", "aqi",
+        "qr code", "project muscle", "thunderbolt", "hdmi", "usb", "webcam", "pin code",
+        "algorithm", "spy cam", "spy cams", "camera", "cable", "display", "data center",
+        "record player", "headphone jack", "radio communication", "symbols", "signals"
+      ]
+    },
+    {
+      name: "History & Culture",
+      icon: "◈",
+      color: "#9b6bc7",
+      deep: "#714a98",
+      soft: "#f3eaff",
+      description: "Origins, people & traditions",
+      terms: [
+        "origin", "origins", "history", "historical", "ancient", "haldi", "heer ranjha",
+        "kanche", "marathon", "reincarnation", "zero", "royal guard", "kohinoor", "touch wood",
+        "red carpet", "lawyer's uniform", "titanic", "maharaja", "pachisi", "chess", "eiffel",
+        "santa claus", "jharokha", "masi ink", "mandir", "braille", "mayday", "shampoo came",
+        "weekend", "basketball", "badminton", "gesture", "queen", "village in india"
+      ]
+    },
+    {
+      name: "Body & Health",
+      icon: "♡",
+      color: "#dd6d86",
+      deep: "#ad405b",
+      soft: "#ffe9ee",
+      description: "Health, food & the human body",
+      terms: [
+        "body", "medicine", "sweating", "sweat", "mango", "sugarcane", "chhass", "nimbu",
+        "hydration", "drink", "milk", "mri", "oxygen", "eye", "eyes", "sleep", "stethoscope",
+        "iv -", "aspirin", "lysol", "alcohol", "childbirth", "fried rice", "smile", "yawning",
+        "fish breathe", "whey protein", "vaseline", "food", "water?", "radiation is harmful"
+      ]
+    },
+    {
+      name: "Society & Ideas",
+      icon: "◌",
+      color: "#d48d36",
+      deep: "#9f621d",
+      soft: "#fff0dc",
+      description: "Behaviour, law & better thinking",
+      terms: [
+        "risk", "decision", "confidence", "intelligence", "smart", "average", "study", "emotions",
+        "love", "desire", "information", "thinking", "brain", "law", "privacy", "defence",
+        "defense", "social", "self awareness", "trust", "discount", "validation", "insecurity",
+        "rebel", "nuanced", "stupidity", "hope", "reasons", "respect", "thinking a lot",
+        "no mask", "n word", "girls shouldn't", "rights", "indian laws", "loopholes"
+      ]
+    },
+    {
+      name: "Transport & Engineering",
+      icon: "↗",
+      color: "#3d92bd",
+      deep: "#25617f",
+      soft: "#e4f4fb",
+      description: "Vehicles, infrastructure & machines",
+      terms: [
+        "plane", "airplane", "railway", "train", "track", "automotive", "car ", "ferrari", "jeep",
+        "lamborghini", "mercedes", "hindenburg", "formula 1", "vande bharat", "road", "engine",
+        "escalator", "cruise control", "taser", "automatic", "funnel", "airplane lights", "airplane",
+        "bike", "shifter", "door rule", "grenade", "explosives", "jeans - from function"
+      ]
+    },
+    {
+      name: "Everyday & Brands",
+      icon: "◒",
+      color: "#b98626",
+      deep: "#896418",
+      soft: "#fff6d9",
+      description: "Objects, brands & daily life",
+      terms: [
+        "brand", "credit card", "dollar", "pizza", "maggi", "kitkat", "biscoff", "fanta",
+        "cardamom", "caviar", "pineapple", "bubble wrap", "shoes", "jeans", "cardamom",
+        "cardamom", "sunglasses", "piggy bank", "tea bag", "whistle", "highlighter", "makeup",
+        "piggy", "cardamom", "a sniff", "favourite street food", "street food", "card ",
+        "cameras?", "blue car", "fan", "cooler", "fridge", "chocolate", "curd"
+      ]
+    },
+    {
+      name: "Nature & Environment",
+      icon: "♧",
+      color: "#4b9d61",
+      deep: "#2c6c40",
+      soft: "#e4f7e9",
+      description: "Animals, climate & the natural world",
+      terms: [
+        "animal", "whale", "koala", "anaconda", "fish", "natural", "fire", "mango is",
+        "water, but", "nature", "sparrows", "climate", "plant", "forest", "mice", "mouse",
+        "mammal", "ecosystem", "salmon", "evolution?"
+      ]
+    },
+    {
+      name: "Media & Entertainment",
+      icon: "▶",
+      color: "#d36882",
+      deep: "#a74760",
+      soft: "#ffe7ed",
+      description: "Film, music, art & pop culture",
+      terms: [
+        "cinema", "movie", "film", "powerpuff", "tom & jerry", "mr. bean", "picasso", "music",
+        "dolby", "spotify", "autotune", "artist", "artists", "cinema hall", "carton network",
+        "courage of cowardly dog", "sound brands", "movie passes", "game now", "cartoon"
+      ]
+    },
+    {
+      name: "Safety & Survival",
+      icon: "⚑",
+      color: "#de754a",
+      deep: "#aa4829",
+      soft: "#ffebe3",
+      description: "Risk, resilience & staying safe",
+      terms: [
+        "electrocuted", "survival", "disaster", "pepper spray", "safe is", "danger", "mask",
+        "fire", "grenade", "explosives", "bomb", "death", "dead", "hospital errors", "tough actions",
+        "war", "soldier", "first strike", "geneva convention", "taser", "spying", "cameras?",
+        "road!", "planes break", "risk ✈", "emergency", "safety"
+      ]
+    }
+  ];
+
+  const topicByName = new Map(TOPICS.map((topic) => [topic.name, topic]));
+  const storageKeys = {
+    saved: "learndriven-short-hub-saved",
+    watched: "learndriven-short-hub-watched"
+  };
+
+  const safeSet = (key) => {
+    try {
+      const value = JSON.parse(localStorage.getItem(key) || "[]");
+      return new Set(Array.isArray(value) ? value : []);
+    } catch {
+      return new Set();
+    }
+  };
+
+  const persistSet = (key, set) => {
+    try {
+      localStorage.setItem(key, JSON.stringify([...set]));
+    } catch {
+      // Browsing remains fully usable if storage is unavailable.
+    }
+  };
+
+  const includesAny = (text, terms) => terms.some((term) => text.includes(term));
+
+  function classify(title) {
+    const text = title.toLowerCase();
+    // Specific story formats before general science catches create cleaner topic shelves.
+    const orderedTopics = [
+      "Media & Entertainment",
+      "Body & Health",
+      "Nature & Environment",
+      "Safety & Survival",
+      "Transport & Engineering",
+      "Tech & Design",
+      "Everyday & Brands",
+      "Society & Ideas",
+      "History & Culture",
+      "Science & Space"
+    ];
+    for (const topicName of orderedTopics) {
+      const topic = topicByName.get(topicName);
+      if (includesAny(text, topic.terms)) return topicName;
+    }
+    return "Everyday & Brands";
+  }
+
+  const videos = source.map((video) => ({
+    ...video,
+    topic: classify(video.title)
+  }));
+
+  const state = {
+    activeTopic: "All topics",
+    query: "",
+    latestFirst: true,
+    savedOnly: false,
+    unwatchedOnly: false,
+    sort: "popular",
+    view: "grid",
+    visibleCount: 12,
+    saved: safeSet(storageKeys.saved),
+    watched: safeSet(storageKeys.watched),
+    selectedVideoId: null
+  };
+
+  const $ = (selector) => document.querySelector(selector);
+  const elements = {
+    totalShorts: $("#totalShorts"),
+    topicCount: $("#topicCount"),
+    totalViews: $("#totalViews"),
+    topicGrid: $("#topicGrid"),
+    topicFilters: $("#topicFilters"),
+    clearTopic: $("#clearTopic"),
+    latestFirst: $("#latestFirst"),
+    savedOnly: $("#savedOnly"),
+    unwatchedOnly: $("#unwatchedOnly"),
+    searchInput: $("#searchInput"),
+    sortSelect: $("#sortSelect"),
+    videoGrid: $("#videoGrid"),
+    resultSummary: $("#resultSummary"),
+    activeFilter: $("#activeFilter"),
+    loadMore: $("#loadMore"),
+    emptyState: $("#emptyState"),
+    progressText: $("#progressText"),
+    progressFill: $("#progressFill"),
+    progressCaption: $("#progressCaption"),
+    resetFilters: $("#resetFilters"),
+    emptyReset: $("#emptyReset"),
+    surpriseButton: $("#surpriseButton"),
+    showAllTopics: $("#showAllTopics"),
+    gridView: $("#gridView"),
+    listView: $("#listView"),
+    backToTop: $("#backToTop"),
+    videoModal: $("#videoModal"),
+    modalClose: $("#modalClose"),
+    modalPoster: $("#modalPoster"),
+    modalIcon: $("#modalIcon"),
+    modalTopic: $("#modalTopic"),
+    modalTitle: $("#modalTitle"),
+    modalMeta: $("#modalMeta"),
+    modalWatch: $("#modalWatch"),
+    modalSave: $("#modalSave"),
+    commandTrigger: $("#commandTrigger"),
+    commandPalette: $("#commandPalette"),
+    commandSearch: $("#commandSearch"),
+    commandResults: $("#commandResults"),
+    toast: $("#toast")
+  };
+
+  function escapeHTML(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function parseViews(value) {
+    const match = String(value).toLowerCase().match(/([\d.]+)\s*([km]?)/);
+    if (!match) return 0;
+    const number = Number(match[1]);
+    const multiplier = match[2] === "m" ? 1_000_000 : match[2] === "k" ? 1_000 : 1;
+    return number * multiplier;
+  }
+
+  function compactViews(number) {
+    if (number >= 1_000_000) return `${Math.floor(number / 1_000_000)}M+`;
+    if (number >= 1_000) return `${Math.floor(number / 1_000)}K+`;
+    return String(number);
+  }
+
+  function topicConfig(topicName) {
+    return topicByName.get(topicName) || TOPICS[0];
+  }
+
+  function topicStyle(topicName) {
+    const topic = topicConfig(topicName);
+    return `--card-color:${topic.color};--card-deep:${topic.deep};--topic-color:${topic.color};--topic-soft:${topic.soft};`;
+  }
+
+  function topicCounts() {
+    return TOPICS.reduce((counts, topic) => {
+      counts[topic.name] = videos.filter((video) => video.topic === topic.name).length;
+      return counts;
+    }, {});
+  }
+
+  const counts = topicCounts();
+
+  function renderStats() {
+    const views = videos.reduce((sum, video) => sum + parseViews(video.views), 0);
+    elements.totalShorts.textContent = videos.length.toLocaleString();
+    elements.topicCount.textContent = TOPICS.length;
+    elements.totalViews.textContent = compactViews(views);
+  }
+
+  function renderTopics() {
+    elements.topicGrid.innerHTML = TOPICS.map((topic) => {
+      const active = state.activeTopic === topic.name ? "active" : "";
+      const count = counts[topic.name] || 0;
+      return `
+        <button class="topic-card ${active}" data-topic="${escapeHTML(topic.name)}" type="button" style="--topic-color:${topic.color};--topic-soft:${topic.soft};" aria-pressed="${state.activeTopic === topic.name}">
+          <span class="topic-icon" aria-hidden="true">${topic.icon}</span>
+          <span class="topic-arrow" aria-hidden="true">↗</span>
+          <h3>${escapeHTML(topic.name)}</h3>
+          <p>${count} Short${count === 1 ? "" : "s"} · ${escapeHTML(topic.description)}</p>
+        </button>`;
+    }).join("");
+  }
+
+  function renderTopicFilters() {
+    const filterItems = [
+      `<button class="topic-filter ${state.activeTopic === "All topics" ? "active" : ""}" data-topic="All topics" type="button">All topics</button>`,
+      ...TOPICS.map((topic) => `<button class="topic-filter ${state.activeTopic === topic.name ? "active" : ""}" data-topic="${escapeHTML(topic.name)}" type="button">${topic.icon} ${escapeHTML(topic.name)}</button>`)
+    ];
+    elements.topicFilters.innerHTML = filterItems.join("");
+  }
+
+  function getFilteredVideos() {
+    const query = state.query.trim().toLowerCase();
+    const result = videos.filter((video) => {
+      const matchTopic = state.activeTopic === "All topics" || video.topic === state.activeTopic;
+      const matchSearch = !query || `${video.title} ${video.topic}`.toLowerCase().includes(query);
+      const matchSaved = !state.savedOnly || state.saved.has(video.id);
+      const matchUnwatched = !state.unwatchedOnly || !state.watched.has(video.id);
+      return matchTopic && matchSearch && matchSaved && matchUnwatched;
+    });
+
+    if (state.latestFirst) {
+      return result.sort((a, b) => a.rank - b.rank);
+    }
+
+    return result.sort((a, b) => {
+      if (state.sort === "title") return a.title.localeCompare(b.title);
+      if (state.sort === "topic") return a.topic.localeCompare(b.topic) || a.title.localeCompare(b.title);
+      return parseViews(b.views) - parseViews(a.views);
+    });
+  }
+
+  function activeFilterText() {
+    const parts = [];
+    if (state.activeTopic !== "All topics") parts.push(state.activeTopic);
+    if (state.query.trim()) parts.push(`“${state.query.trim()}”`);
+    if (state.savedOnly) parts.push("Saved");
+    if (state.unwatchedOnly) parts.push("Unwatched");
+    return parts.join(" · ");
+  }
+
+  function videoCardMarkup(video) {
+    const topic = topicConfig(video.topic);
+    const saved = state.saved.has(video.id);
+    const watched = state.watched.has(video.id);
+    const rank = String(video.rank).padStart(3, "0");
+    const title = escapeHTML(video.title);
+    const videoId = escapeHTML(video.id);
+
+    return `
+      <article class="video-card ${watched ? "watched" : ""}" style="${topicStyle(video.topic)}" data-id="${videoId}">
+        <div class="video-poster">
+          <button class="poster-detail-button" data-details="${videoId}" type="button" aria-label="View details for ${title}">
+            <span class="poster-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6V6Z"></path></svg></span>
+          </button>
+          <div class="poster-top">
+            <span class="poster-rank">#${rank}</span>
+            <button class="save-button ${saved ? "saved" : ""}" data-save="${videoId}" type="button" aria-label="${saved ? "Remove" : "Save"} ${title} ${saved ? "from" : "to"} your queue" title="${saved ? "Remove from" : "Save to"} queue">
+              <svg viewBox="0 0 24 24"><path d="M6.5 4.5h11a1 1 0 0 1 1 1v15l-6.5-4-6.5 4v-15a1 1 0 0 1 1-1Z"></path></svg>
+            </button>
+          </div>
+          <span class="poster-symbol" aria-hidden="true">${topic.icon}</span>
+          <div class="poster-topic"><span aria-hidden="true">${topic.icon}</span><span>${escapeHTML(video.topic)}</span></div>
+        </div>
+        <div class="card-body">
+          <button class="card-title" data-details="${videoId}" type="button">${title}</button>
+          <p class="card-meta"><span>${escapeHTML(video.views)}</span><i></i><span>LearnDriven</span></p>
+          <div class="card-actions">
+            <label class="watch-check" title="Mark watched">
+              <input data-watched="${videoId}" type="checkbox" ${watched ? "checked" : ""} />
+              <span class="watch-indicator" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8.2 3.05 3L13 4.8"></path></svg></span>
+              <span>${watched ? "Watched" : "Mark watched"}</span>
+            </label>
+            <a class="open-short" href="${escapeHTML(video.url)}" target="_blank" rel="noopener" aria-label="Watch ${title} on YouTube">Watch <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function renderActiveFilter() {
+    const text = activeFilterText();
+    if (!text) {
+      elements.activeFilter.hidden = true;
+      elements.activeFilter.innerHTML = "";
+      return;
+    }
+    elements.activeFilter.hidden = false;
+    elements.activeFilter.innerHTML = `<span>Filtered by ${escapeHTML(text)}</span><button type="button" id="clearActiveFilter" aria-label="Clear active filters">×</button>`;
+    $("#clearActiveFilter")?.addEventListener("click", resetFilters);
+  }
+
+  function renderVideoGrid() {
+    const filtered = getFilteredVideos();
+    const shown = filtered.slice(0, state.visibleCount);
+    const hasMore = filtered.length > shown.length;
+
+    elements.videoGrid.classList.toggle("list-view", state.view === "list");
+    elements.videoGrid.innerHTML = shown.map(videoCardMarkup).join("");
+    elements.videoGrid.hidden = filtered.length === 0;
+    elements.emptyState.hidden = filtered.length !== 0;
+    elements.loadMore.hidden = !hasMore;
+    elements.loadMore.innerHTML = hasMore ? `Load ${Math.min(12, filtered.length - shown.length)} more Shorts <span>↓</span>` : "";
+
+    const scope = state.activeTopic === "All topics" ? "all topics" : state.activeTopic;
+    const order = state.latestFirst ? "Latest first" : state.sort === "popular" ? "Most viewed" : state.sort === "title" ? "A–Z" : "By topic";
+    elements.resultSummary.textContent = `${filtered.length} Short${filtered.length === 1 ? "" : "s"} in ${scope} · ${order}`;
+    renderActiveFilter();
+  }
+
+  function renderProgress() {
+    const completed = videos.filter((video) => state.watched.has(video.id)).length;
+    const percentage = videos.length ? Math.round((completed / videos.length) * 100) : 0;
+    elements.progressText.textContent = `${completed} / ${videos.length}`;
+    elements.progressFill.style.width = `${percentage}%`;
+    elements.progressCaption.textContent = completed
+      ? `${percentage}% of the library explored. Keep the curiosity going.`
+      : "Mark a Short watched to build your learning trail.";
+  }
+
+  function renderAll() {
+    elements.latestFirst.checked = state.latestFirst;
+    elements.savedOnly.checked = state.savedOnly;
+    elements.unwatchedOnly.checked = state.unwatchedOnly;
+    elements.searchInput.value = state.query;
+    elements.sortSelect.value = state.sort;
+    elements.sortSelect.disabled = state.latestFirst;
+    elements.gridView.classList.toggle("active", state.view === "grid");
+    elements.listView.classList.toggle("active", state.view === "list");
+    renderTopics();
+    renderTopicFilters();
+    renderVideoGrid();
+    renderProgress();
+  }
+
+  function setTopic(topicName, shouldScroll = false) {
+    state.activeTopic = topicName;
+    state.visibleCount = 12;
+    renderAll();
+    if (shouldScroll) {
+      $("#short-library").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function toggleSaved(videoId) {
+    if (state.saved.has(videoId)) {
+      state.saved.delete(videoId);
+      showToast("Removed from your learning queue.");
+    } else {
+      state.saved.add(videoId);
+      showToast("Saved to your learning queue.");
+    }
+    persistSet(storageKeys.saved, state.saved);
+    renderAll();
+    refreshModal();
+  }
+
+  function toggleWatched(videoId, shouldWatch) {
+    if (shouldWatch) {
+      state.watched.add(videoId);
+      showToast("Marked as watched — nice work.");
+    } else {
+      state.watched.delete(videoId);
+      showToast("Moved back to unwatched.");
+    }
+    persistSet(storageKeys.watched, state.watched);
+    renderAll();
+  }
+
+  function openVideo(videoId) {
+    const video = videos.find((item) => item.id === videoId);
+    if (!video) return;
+    state.selectedVideoId = videoId;
+    const topic = topicConfig(video.topic);
+    elements.modalPoster.style.background = `linear-gradient(140deg, ${topic.color}, ${topic.deep})`;
+    elements.modalIcon.textContent = topic.icon;
+    elements.modalTopic.textContent = video.topic;
+    elements.modalTitle.textContent = video.title;
+    elements.modalMeta.textContent = `${video.views} · LearnDriven Short #${String(video.rank).padStart(3, "0")}`;
+    elements.modalWatch.href = video.url;
+    refreshModal();
+    if (!elements.videoModal.open) elements.videoModal.showModal();
+  }
+
+  function refreshModal() {
+    const video = videos.find((item) => item.id === state.selectedVideoId);
+    if (!video) return;
+    const saved = state.saved.has(video.id);
+    elements.modalSave.textContent = saved ? "Saved to your queue" : "Save to queue";
+    elements.modalSave.classList.toggle("button-primary", saved);
+    elements.modalSave.classList.toggle("button-secondary", !saved);
+  }
+
+  function resetFilters() {
+    state.activeTopic = "All topics";
+    state.query = "";
+    state.latestFirst = true;
+    state.savedOnly = false;
+    state.unwatchedOnly = false;
+    state.sort = "popular";
+    state.visibleCount = 12;
+    renderAll();
+  }
+
+  let toastTimer;
+  function showToast(message) {
+    clearTimeout(toastTimer);
+    elements.toast.textContent = message;
+    elements.toast.classList.add("show");
+    toastTimer = setTimeout(() => elements.toast.classList.remove("show"), 2400);
+  }
+
+  function openRandom() {
+    const pool = getFilteredVideos().length ? getFilteredVideos() : videos;
+    const randomVideo = pool[Math.floor(Math.random() * pool.length)];
+    openVideo(randomVideo.id);
+    showToast("A fresh learning prompt, picked for you.");
+  }
+
+  function renderCommandResults(query = "") {
+    const normalized = query.trim().toLowerCase();
+    const topicMatches = TOPICS.filter((topic) => topic.name.toLowerCase().includes(normalized)).slice(0, 3);
+    const videoMatches = videos
+      .filter((video) => !normalized || `${video.title} ${video.topic}`.toLowerCase().includes(normalized))
+      .slice(0, 7);
+
+    if (!topicMatches.length && !videoMatches.length) {
+      elements.commandResults.innerHTML = `<p class="command-empty">No matching topics or Shorts.</p>`;
+      return;
+    }
+
+    const topicMarkup = topicMatches.map((topic) => `
+      <button class="command-result" type="button" data-command-topic="${escapeHTML(topic.name)}">
+        <span class="command-result-icon">${topic.icon}</span>
+        <span>${escapeHTML(topic.name)}<small>${counts[topic.name]} Shorts · Open topic</small></span>
+      </button>`).join("");
+
+    const videoMarkup = videoMatches.map((video) => `
+      <button class="command-result" type="button" data-command-video="${escapeHTML(video.id)}">
+        <span class="command-result-icon">${topicConfig(video.topic).icon}</span>
+        <span>${escapeHTML(video.title)}<small>${escapeHTML(video.topic)} · ${escapeHTML(video.views)}</small></span>
+      </button>`).join("");
+
+    elements.commandResults.innerHTML = topicMarkup + videoMarkup;
+  }
+
+  function openCommandPalette() {
+    elements.commandSearch.value = "";
+    renderCommandResults();
+    if (!elements.commandPalette.open) elements.commandPalette.showModal();
+    window.setTimeout(() => elements.commandSearch.focus(), 50);
+  }
+
+  // Events
+  elements.topicGrid.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-topic]");
+    if (button) setTopic(button.dataset.topic, true);
+  });
+
+  elements.topicFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-topic]");
+    if (button) setTopic(button.dataset.topic);
+  });
+
+  elements.clearTopic.addEventListener("click", () => setTopic("All topics"));
+  elements.latestFirst.addEventListener("change", (event) => {
+    state.latestFirst = event.target.checked;
+    state.visibleCount = 12;
+    renderAll();
+  });
+  elements.savedOnly.addEventListener("change", (event) => {
+    state.savedOnly = event.target.checked;
+    state.visibleCount = 12;
+    renderAll();
+  });
+  elements.unwatchedOnly.addEventListener("change", (event) => {
+    state.unwatchedOnly = event.target.checked;
+    state.visibleCount = 12;
+    renderAll();
+  });
+  elements.searchInput.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    state.visibleCount = 12;
+    renderAll();
+  });
+  elements.sortSelect.addEventListener("change", (event) => {
+    state.sort = event.target.value;
+    state.visibleCount = 12;
+    renderAll();
+  });
+  elements.loadMore.addEventListener("click", () => {
+    state.visibleCount += 12;
+    renderVideoGrid();
+  });
+  elements.resetFilters.addEventListener("click", resetFilters);
+  elements.emptyReset.addEventListener("click", resetFilters);
+  elements.showAllTopics.addEventListener("click", () => {
+    resetFilters();
+    $("#short-library").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  elements.surpriseButton.addEventListener("click", openRandom);
+
+  elements.videoGrid.addEventListener("click", (event) => {
+    const saveButton = event.target.closest("[data-save]");
+    if (saveButton) {
+      toggleSaved(saveButton.dataset.save);
+      return;
+    }
+    const detailButton = event.target.closest("[data-details]");
+    if (detailButton) openVideo(detailButton.dataset.details);
+  });
+
+  elements.videoGrid.addEventListener("change", (event) => {
+    const watchedInput = event.target.closest("[data-watched]");
+    if (watchedInput) toggleWatched(watchedInput.dataset.watched, watchedInput.checked);
+  });
+
+  [elements.gridView, elements.listView].forEach((button) => {
+    button.addEventListener("click", () => {
+      state.view = button.dataset.view;
+      renderAll();
+    });
+  });
+
+  elements.modalClose.addEventListener("click", () => elements.videoModal.close());
+  elements.videoModal.addEventListener("click", (event) => {
+    if (event.target === elements.videoModal) elements.videoModal.close();
+  });
+  elements.modalSave.addEventListener("click", () => {
+    if (state.selectedVideoId) toggleSaved(state.selectedVideoId);
+  });
+
+  elements.commandTrigger.addEventListener("click", openCommandPalette);
+  elements.commandSearch.addEventListener("input", (event) => renderCommandResults(event.target.value));
+  elements.commandResults.addEventListener("click", (event) => {
+    const topicButton = event.target.closest("[data-command-topic]");
+    const videoButton = event.target.closest("[data-command-video]");
+    if (topicButton) {
+      elements.commandPalette.close();
+      setTopic(topicButton.dataset.commandTopic, true);
+    }
+    if (videoButton) {
+      elements.commandPalette.close();
+      openVideo(videoButton.dataset.commandVideo);
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    elements.backToTop.classList.toggle("show", window.scrollY > 650);
+  }, { passive: true });
+  elements.backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  document.addEventListener("keydown", (event) => {
+    const isTyping = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName);
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      openCommandPalette();
+      return;
+    }
+    if (event.key === "/" && !isTyping && !elements.commandPalette.open && !elements.videoModal.open) {
+      event.preventDefault();
+      elements.searchInput.focus();
+      return;
+    }
+    if (event.key === "Escape") {
+      if (elements.commandPalette.open) elements.commandPalette.close();
+      if (elements.videoModal.open) elements.videoModal.close();
+    }
+  });
+
+  renderStats();
+  renderAll();
+})();
+
+    </script>
+  </body>
+</html>
